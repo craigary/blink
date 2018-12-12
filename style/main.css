@@ -1,0 +1,105 @@
+html,body {
+	height: 100%;
+	background-color: #fafafa;
+}
+
+#wrapper {
+	margin-top: 2rem!important;
+	margin-bottom: 2rem!important;
+	margin:auto;
+	max-width:900px;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+p,li {
+	color: #555555;
+	font-size: 16px;
+	line-height: 1.5em;
+	font-weight: normal;
+}
+
+a {
+	color: #EF1F2F;
+	text-decoration: none;
+	border: none;
+}
+
+.login-page {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #209cee;
+}
+
+.login-page h1 {
+	color: white;
+}
+
+#login {
+	width: 300px;
+	text-align: center;
+	margin: auto;
+	color:white;
+}
+
+.box {
+	background-color: rgba(255,255,255,0.8);
+	
+}
+
+
+article.box {
+	padding: 1rem 1.5rem;
+}
+
+.card4article {
+	box-shadow: 0 3rem 3rem -1rem rgba(10,10,10,.2);
+}
+
+hr {
+    background-color: #f5f5f5;
+    border: none;
+    display: block;
+    height: 2px;
+    margin: 1.5rem 0;
+}
+
+.is-danger {
+	color:#fff;
+}
+
+table {
+	width: 100%;
+}
+
+form .button {
+	margin-top: 1.5rem;
+}
+
+.subtitle {
+	font-size: 1rem;
+}
+
+nav > ul{
+	align-items: center!important;
+	justify-content: flex-end!important;
+}
+
+
+.notification > button.delete {
+  border: none;
+}
+
+.is-hidden {
+  display: none;
+}
+
+@media screen and (max-width: 900px){
+	#wrapper {
+		margin-right: 2rem;
+	    margin-left: 2rem;
+	}
+
+}
