@@ -11,14 +11,15 @@ session_start();
 // $db = new PDO("mysql:host=".DBHOST.";port=3306;dbname=".DBNAME, DBUSER, DBPASS);
 // $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$dbhost = "localhost";
+$dbhost = "127.0.0.1";
 $dbuser = "root";
-$dbpass = "";
+$dbpass = "root";
 $dbname = "blog";
+$dbport = "8889";
 
-$db = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+$db = new mysqli($dbhost, $dbuser, $dbpass, $dbname, $dbport);
 
-//Valiadate connection 
+//Valiadate connection
 
 if ($db -> connect_error) {
    die("Connection Failed: ".$db->connect_error);
@@ -31,7 +32,7 @@ date_default_timezone_set('Europe/London');
 
 //load classes as needed
 class User {
-    
+
     public function is_logged_in(){
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
             return true;
@@ -54,5 +55,5 @@ $blogCover = $settings['blogCover'];
 // $codeInjection_head = $settings['codeInjection_head'];
 // $codeInjection_foo = $settings['codeInjection_foo'];
 
-$user = new User($db); 
-?> 
+$user = new User($db);
+?>
