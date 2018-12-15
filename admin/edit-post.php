@@ -52,9 +52,9 @@ if ($ac == 'emptytitle') {
     echo '<button class="delete"></button>';
     echo 'Type someting! This is a post.';
     echo '</div>';
-} 
+}
 
-$sql = "SELECT postID, postTitle, postDesc, postCont FROM blog_posts WHERE postID = ?";
+$sql = "SELECT postID, postTitle, postDesc, postCont FROM iceland_contents WHERE postID = ?";
     $stmt = mysqli_stmt_init($db);
     mysqli_stmt_prepare($stmt, $sql);
     mysqli_stmt_bind_param($stmt, "s", $id);
@@ -76,4 +76,4 @@ $sql = "SELECT postID, postTitle, postDesc, postCont FROM blog_posts WHERE postI
 </div>
 
 </body>
-</html>	
+</html>

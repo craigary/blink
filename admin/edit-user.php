@@ -18,7 +18,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <div id="wrapper">
 
     <?php include('menu-users.php');
-        
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 } else {
@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
 
 if (isset($_GET['action'])) {
     $ac = $_GET['action'];
-    
+
 } else {
     $ac = '';
 }
@@ -50,7 +50,7 @@ if ($ac == 'empty') {
     echo '</div>';
 }
 
-$sql = "SELECT memberID, username, email FROM blog_members WHERE memberID = ?";
+$sql = "SELECT memberID, username, email FROM iceland_users WHERE memberID = ?";
     $stmt = mysqli_stmt_init($db);
     mysqli_stmt_prepare($stmt, $sql);
     mysqli_stmt_bind_param($stmt, "s", $id);
@@ -95,4 +95,4 @@ $sql = "SELECT memberID, username, email FROM blog_members WHERE memberID = ?";
 
 
 </body>
-</html>	
+</html>

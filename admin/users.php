@@ -6,12 +6,12 @@ require_once('../includes/config.php');
 if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 //show message from add / edit page
-if(isset($_GET['deluser'])){ 
+if(isset($_GET['deluser'])){
 
 	//if user id is 1 ignore
 	if($_GET['deluser'] !='1'){
 		$id = $_GET['deluser'];
-		$sql = "DELETE FROM blog_members WHERE memberID = ?";
+		$sql = "DELETE FROM iceland_users WHERE memberID = ?";
 		$stmt = mysqli_stmt_init($db);
 		mysqli_stmt_prepare($stmt, $sql);
 		mysqli_stmt_bind_param($stmt, "s", $id);
@@ -19,7 +19,7 @@ if(isset($_GET['deluser'])){
 		header('Location: users.php?action=deleted');
 			exit();
 	}
-} 
+}
 
 ?>
 <!doctype html>
@@ -46,26 +46,26 @@ if(isset($_GET['deluser'])){
 	<div id="wrapper">
 
 	<?php include('menu-users.php');
-	
+
 	//show message from add / edit page
-	if(isset($_GET['action'])){ 
+	if(isset($_GET['action'])){
 		if ($_GET['action'] == 'deleted') {
 			echo '<div class="notification is-danger">';
 			echo '<button class="delete"></button>';
 			echo 'User deleted.';
-			echo '</div>';	
+			echo '</div>';
 		} elseif ($_GET['action'] == 'created') {
 			echo '<div class="notification is-info">';
 			echo '<button class="delete"></button>';
 			echo 'User created.';
-			echo '</div>';	
+			echo '</div>';
 		} elseif ($_GET['action'] == 'modified') {
 			echo '<div class="notification is-success">';
 			echo '<button class="delete"></button>';
 			echo 'User modified.';
 			echo '</div>';
 		}
-	} 
+	}
 	?>
 	<div class="box">
 	<table class="table">
@@ -77,7 +77,7 @@ if(isset($_GET['deluser'])){
 	<?php
 
 
-			$sql= "SELECT memberID, username, email FROM blog_members ORDER BY username";
+			$sql= "SELECT memberID, username, email FROM iceland_users ORDER BY username";
 			$result = mysqli_query($db, $sql);
 			while ($row = mysqli_fetch_assoc($result)) {
 				echo '<tr>';
@@ -86,13 +86,13 @@ if(isset($_GET['deluser'])){
 				?>
 
 				<td>
-					<a href="edit-user.php?id=<?php echo $row['memberID'];?>">Edit</a> 
+					<a href="edit-user.php?id=<?php echo $row['memberID'];?>">Edit</a>
 					<?php if($row['memberID'] != 1){?>
 						| <a href="javascript:deluser('<?php echo $row['memberID'];?>','<?php echo $row['username'];?>')">Delete</a>
 					<?php } ?>
 				</td>
-				
-				<?php 
+
+				<?php
 				echo '</tr>';
 
 			}

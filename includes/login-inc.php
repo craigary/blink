@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 		header("Location: ../admin/login.php?login=empty");
 		exit();
 	} else {
-		$sql = "SELECT * FROM blog_members WHERE username='$unm'";
+		$sql = "SELECT * FROM iceland_users WHERE name='$unm'";
 		$result = mysqli_query($db, $sql);
 		$resultCheck = mysqli_num_rows($result);
 		if ($resultCheck < 1) {

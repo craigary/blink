@@ -6,10 +6,10 @@ require_once('../includes/config.php');
 if(!$user->is_logged_in()){ header('Location: login.php'); }
 
 //show message from add / edit page
-if(isset($_GET['delpost'])){ 
+if(isset($_GET['delpost'])){
 $id = $_GET['delpost'];
 // Create a template
-$sql = "DELETE FROM blog_posts WHERE postID = ?";
+$sql = "DELETE FROM iceland_contents WHERE postID = ?";
 //Create a prepared statement
 $stmt = mysqli_stmt_init($db);
 //Prepare the prepared statement
@@ -19,7 +19,7 @@ mysqli_stmt_bind_param($stmt, "s", $id);
 mysqli_stmt_execute($stmt);
 header('Location: index.php?action=deleted');
 	exit();
-} 
+}
 
 ?>
 <!doctype html>
@@ -39,7 +39,7 @@ header('Location: index.php?action=deleted');
 	  	window.location.href = 'index.php?delpost=' + id;
 	  }
   }
-  	
+
   </script>
 </head>
 <body>
@@ -48,7 +48,7 @@ header('Location: index.php?action=deleted');
 
 	<?php include('menu-posts.php');?>
 
-	<?php 
+	<?php
 	//show message from add / edit page
 	if(isset($_GET['action'])) {
         if ($_GET['action'] == 'deleted') {
@@ -82,7 +82,7 @@ header('Location: index.php?action=deleted');
 		<th>Action</th>
 	</tr>
 	<?php
-			$sql = "SELECT postID, postTitle, postDate FROM blog_posts ORDER BY postID DESC";
+			$sql = "SELECT postID, postTitle, postDate FROM iceland_contents ORDER BY postID DESC";
 			$result = mysqli_query($db, $sql);
 			$resultCheck = mysqli_num_rows($result);
 				if ($resultCheck == 0) {
@@ -96,8 +96,8 @@ header('Location: index.php?action=deleted');
 						echo'<a href="edit-post.php?id='?><?php echo $row['postID'];?><?php echo'">Edit</a> |';
 						?>
 						<a href="javascript:delpost('<?php echo $row['postID'];?>','<?php echo $row['postTitle'];?>')">Delete</a>
-						<?php 
-						
+						<?php
+
 						echo '</td>';
 						echo '</tr>';
 					}

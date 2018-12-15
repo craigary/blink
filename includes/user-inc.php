@@ -21,7 +21,7 @@ if ($_POST['submit']=="create") {
 				header("Location: ../admin/add-user.php?action=invalidemail");
 				exit();
 			} else {
-				$sql = "SELECT * FROM blog_members WHERE username = '$username'";
+				$sql = "SELECT * FROM iceland_users WHERE username = '$username'";
 				$result = mysqli_query($db, $sql);
 				$resultCheck = mysqli_num_rows($result);
 				if ($resultCheck > 0) {
@@ -31,7 +31,7 @@ if ($_POST['submit']=="create") {
 					//hashing the pass
 					$hashedPWD =  password_hash($password, PASSWORD_DEFAULT);
 					//Insert the user into the db
-					$sql = "INSERT INTO `blog_members`(`username`, `password`, `email`) VALUES ('$username', '$hashedPWD', '$email');";
+					$sql = "INSERT INTO `iceland_users`(`username`, `password`, `email`) VALUES ('$username', '$hashedPWD', '$email');";
 					mysqli_query($db, $sql);
 					header("Location: ../admin/users.php?action=created");
 					exit();
@@ -63,7 +63,7 @@ if ($_POST['submit']=="create") {
                     //hashing the pass
                     $hashedPWD =  password_hash($password, PASSWORD_DEFAULT);
 
-                    $sql = "UPDATE blog_members SET username = $username, password = $hashedPWD email = $email WHERE memberID = $memberid;";
+                    $sql = "UPDATE iceland_users SET username = $username, password = $hashedPWD email = $email WHERE memberID = $memberid;";
                     mysqli_query($db, $sql);
                     header("Location: ../admin/users.php?action=modified");
                     exit();
@@ -73,6 +73,5 @@ if ($_POST['submit']=="create") {
 } else {
 //	header("Location: ../admin/users.php");
 //	exit();
-
     echo "Fuck You!";
 }

@@ -21,7 +21,7 @@ if ($_POST['submit']=="create") {
                     $postdesc = substr($postcont, 450);
                 }
             } else {
-                $sql = "INSERT INTO blog_posts (postTitle,postDesc,postCont) VALUES ('$posttitle', '$postdesc', '$postcont')";
+                $sql = "INSERT INTO iceland_contents (postTitle,postDesc,postCont) VALUES ('$posttitle', '$postdesc', '$postcont')";
                 $result = mysqli_query($db, $sql);
                 header("Location: ../admin/index.php?action=posted");
                 exit();
@@ -44,12 +44,12 @@ if ($_POST['submit']=="create") {
             if (empty($postdesc)) {
                 $postdesc = $postcont;
                 $postdesc = substr($postdesc, 0, 450);
-                $sql = "UPDATE blog_posts SET postTitle = '$posttitle', postDesc = '$postdesc', postCont = '$postcont' WHERE postID = '$postid';";
+                $sql = "UPDATE iceland_contents SET postTitle = '$posttitle', postDesc = '$postdesc', postCont = '$postcont' WHERE postID = '$postid';";
                 $result = mysqli_query($db, $sql);
                 header("Location: ../admin/index.php?action=modified");
                 exit();
             } else {
-                $sql = "UPDATE blog_posts SET postTitle = '$posttitle', postDesc = '$postdesc', postCont = '$postcont' WHERE postID = '$postid';";
+                $sql = "UPDATE iceland_contents SET postTitle = '$posttitle', postDesc = '$postdesc', postCont = '$postcont' WHERE postID = '$postid';";
                 $result = mysqli_query($db, $sql);
                 header("Location: ../admin/index.php?action=modified");
                 exit();

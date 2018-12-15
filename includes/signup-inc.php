@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['submit'])) {
-	
+
 	include_once 'config.php';
 
 	$username = mysqli_real_escape_string($db, $_POST['username']);
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
 				header("Location: ../install/index.php?signup=invalidemail");
 				exit();
 			} else {
-				$sql = "SELECT * FROM blog_members WHERE username = '$username'";
+				$sql = "SELECT * FROM iceland_users WHERE username = '$username'";
 				$result = mysqli_query($db, $sql);
 				$resultCheck = mysqli_num_rows($result);
 				if ($resultCheck > 0) {
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
 					//hashing the pass
 					$hashedPWD =  password_hash($password, PASSWORD_DEFAULT);
 					//Insert the user into the db
-					$sql = "INSERT INTO `blog_members`(`username`, `password`, `email`) VALUES ('$username', '$hashedPWD', '$email');";
+					$sql = "INSERT INTO `iceland_users`(`username`, `password`, `email`) VALUES ('$username', '$hashedPWD', '$email');";
 					mysqli_query($db, $sql);
 					header("Location: ../install/index.php?signup=success");
 					exit();
