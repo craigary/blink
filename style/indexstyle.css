@@ -123,7 +123,7 @@ a.post_readmore {
   border-color: rgba(43, 62, 80, 0.1);
 }
 
-.post:last-of-child > hr{
+.post:last-child{
   display: none;
 }
 
