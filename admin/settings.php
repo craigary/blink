@@ -19,22 +19,20 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 <div id="wrapper">
 
     <?php include('menu-settings.php');
-        if(isset($_GET['action'])){ 
+        if(isset($_GET['action'])){
             if ($_GET['action'] == 'emptyblogname') {
                 echo '<div class="notification is-danger">';
                 echo '<button class="delete"></button>';
                 echo 'Blog name can\'t be empty.';
-                echo '</div>';	
+                echo '</div>';
             } elseif ($_GET['action'] == 'emptyppp') {
                 echo '<div class="notification is-info">';
                 echo '<button class="delete"></button>';
                 echo 'Post per page name can\'t be empty.';
-                echo '</div>';	
+                echo '</div>';
             }
             }
     ?>
-
-
     <form action="../includes/settings-inc.php" method="post">
         <p><label>Blog Name</label><br>
 		<input class="input" type='text' name='blogname' value='<?php echo $blogName;?>'></p>
@@ -51,4 +49,4 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 	});
 </script>
 </body>
-</html>	
+</html>

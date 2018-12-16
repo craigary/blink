@@ -3,7 +3,7 @@
 require_once('../includes/config.php');
 
 //check if already logged in
-if( $user->is_logged_in() ){ header('Location: index.php'); } 
+if( $user->is_logged_in() ){ header('Location: index.php'); }
 ?>
     <!doctype html>
     <html lang="en">
@@ -18,12 +18,11 @@ if( $user->is_logged_in() ){ header('Location: index.php'); }
 
     <body>
         <div class="login-page">
-            
+
             <div id="login">
     <h1 class="title">
         LOGIN
         </h1>
-
 
                             <div class="box">
                         <form action="../includes/login-inc.php" method="post">
