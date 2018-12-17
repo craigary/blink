@@ -29,5 +29,6 @@
 			}
 			echo $pages->page_links();
 		?>
+		
 		</div>
 <?php require('includes/footer.php') ?>
