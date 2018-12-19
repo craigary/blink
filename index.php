@@ -3,8 +3,8 @@
 	require('includes/header.php'); ?>
 		<div class="title is-parent">
 		<?php
-			$result = mysqli_query($db, 'SELECT * FROM iceland_contents ORDER BY cid DESC');
-			$pages = new Paginator($postsPerPage,'p');
+			$result = mysqli_query($db, 'SELECT * FROM blink_contents ORDER BY cid DESC');
+			// $pages = new Paginator($postsPerPage,'p');
 			$sql = 'SELECT cid FROM iceland_contents';
 			$stmt = mysqli_query($db,$sql);
 			$pages->set_total(mysqli_num_rows($stmt));
@@ -25,7 +25,7 @@
 						echo '<hr>';
 					echo '</div>';
 			}
-			echo $pages->page_links();
+			// echo $pages->page_links();
 		?>
 		</div>
 <?php require('includes/footer.php') ?>
