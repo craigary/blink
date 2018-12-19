@@ -44,7 +44,7 @@ class User {
     }
 }
 
-$sql = "SELECT * FROM iceland_options";
+$sql = "SELECT * FROM blink_options";
 
 $settings = mysqli_fetch_assoc(mysqli_query($db, $sql));
 // Posts per page

@@ -1,7 +1,7 @@
-<?php require('includes/config.php'); 
+<?php require('includes/config.php');
 $id = $_GET['id'];
 // Create a template
-$sql = "SELECT postID, postTitle, postCont, postDate FROM blog_posts WHERE postID = ?";
+$sql = "SELECT * FROM blink_contents WHERE cid = ?";
 //Create a prepared statement
 $stmt = mysqli_stmt_init($db);
 //Prepare the prepared statement
@@ -13,19 +13,22 @@ $result = mysqli_stmt_get_result($stmt);
 $row = mysqli_fetch_assoc($result);
 
 //if post does not exists redirect user.
-	if($row['postID'] == ''){
+	if($row['cid'] == ''){
 		header('Location: ./');
 		exit;
 	}
 
 require('includes/header.php') ?>
-		<div class="title is-parent">
-		<article class="title is-child typo">
+		<article class="post">
 		<?php
-				echo '<p class="title">'.$row['postTitle'].'</p>';
-				echo '<p class="subtitle">Posted on '.date('jS M Y', strtotime($row['postDate'])).'</p>';
-				echo '<div class="content">'.$row['postCont'].'</div>';
-		?>
+				echo '<h1 class="post_title">'.$row['title'].'</h1>';
+				echo '<div class="post_info"><p class="post_date">Posted on '.date('jS M Y H:i:s', strtotime($row['modified'])).'</p>';
+					$sql = "SELECT * FROM blink_metas WHERE mid = ".$row['categories']." & 'type' = 'category' ORDER BY mid DESC";
+					$stmt2 = mysqli_query($db,$sql);
+					$cate = mysqli_fetch_assoc($stmt2);
+				echo '<p class="post_category"><a href="/?cid='.$cate['mid'].'" title="'.$cate['description'].'">#'.$cate['name'].'</a></p></div>';
+				echo '<p class="desc">'.$row['text'].'</p>';
+?>
 	</article>
-	</div>
+
 <?php require('includes/footer.php') ?>
