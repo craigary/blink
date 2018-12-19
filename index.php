@@ -15,13 +15,11 @@
 						echo '<h1 class="post_title"><a href="viewpost.php?id='.$row['cid'].'">'.$row['title'].'</a></h1>';
 						echo '<div class="post_info"><p class="post_date">Posted on '.date('jS M Y H:i:s', strtotime($row['modified'])).'</p>';
 						echo '<p class="post_category"><a href="#">#trial</a></p></div>';
-
 							$categoryid = $row['category'];
 							$sql = 'SELECT * FROM iceland_categories WHERE cid = '.$categoryid.'ORDER BY mid DESC';
 							$stmt = mysqli_query($db,$sql);
 							$cate = mysqli_fetch_assoc($stmt);
 							echo '<p class="post_category"><a href="#" title="'.$cate['description'].'">#'.$cate['name'].'</a></p></div>';
-						
 						echo '<p class="desc">'.$row['description'].'</p>';
 						echo '<p><a href="viewpost.php?id='.$row['cid'].'" class="post_readmore">Read More</a></p>';
 						echo '<hr>';
@@ -29,6 +27,5 @@
 			}
 			echo $pages->page_links();
 		?>
-		
 		</div>
 <?php require('includes/footer.php') ?>
