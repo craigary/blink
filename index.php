@@ -1,6 +1,7 @@
 <?php require('includes/config.php');
 	require('includes/paginator.php');
 	require('includes/header.php'); ?>
+	
 		<div class="title is-parent">
 		<?php
 			//$result = mysqli_query($db, 'SELECT * FROM blink_contents ORDER BY cid DESC');
