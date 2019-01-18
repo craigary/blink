@@ -1,7 +1,5 @@
 <?php
-
 include_once 'config.php';
-
 if ($_POST['submit']=="create") {
     $posttitle = mysqli_real_escape_string($db, $_POST['postTitle']);
     $postdesc = mysqli_real_escape_string($db, $_POST['postDesc']);

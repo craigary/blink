@@ -1,65 +1,64 @@
-<?php //include config
-require_once('../includes/config.php');
-
-//if not logged in redirect to login page
-if(!$user->is_logged_in()){ header('Location: login.php'); }
+<?php
+include 'header.php';
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Admin - Add Post</title>
-  <link rel="stylesheet" href="../style/normalize.css">
-  <link rel="stylesheet" href="../style/bulma.min.css">
-  <link rel="stylesheet" href="../style/main.css">
-  <script src="../js/tinymce/tinymce.min.js"></script>
-  <script>
-          tinymce.init({
-              selector: "textarea.contentbox",
-              plugins: [
-                  "advlist autolink lists link image charmap print preview anchor",
-                  "searchreplace visualblocks code fullscreen",
-                  "insertdatetime media table contextmenu paste"
-              ],
-              toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-          });
-  </script>
-</head>
-<body>
-
-<div id="wrapper">
-
-	<?php include('menu-posts.php');
-
-    if(isset($_GET['action'])){
-        if ($_GET['action'] == 'emptytitle') {
-            echo '<div class="notification is-danger">';
-            echo '<button class="delete"></button>';
-            echo 'PLEASE ENTER A TITLE!.';
-            echo '</div>';
-        } elseif ($_GET['action'] == 'emptycontent') {
-            echo '<div class="notification is-danger">';
-            echo '<button class="delete"></button>';
-            echo 'CONTENT IS EMPTY! ENTER SOMETHING!.';
-            echo '</div>';
-        }
-    }
-	?>
-
-
-
-	<form action='../includes/post-inc.php' method='post'>
-
-		<p><label>Title</label><br>
-		<input class="input" type='text' name='postTitle' value=''></p>
-		<p><label>Description</label><br>
-		<textarea class="textarea" name='postDesc'></textarea></p>
-
-		<p><label>Content</label><br>
-		<textarea class="contentbox" name='postCont'></textarea></p>
-
-		<p><input class="button is-danger is-rounded" type='submit' name='submit' value='create'></p>
-
-	</form>
-
-</div>
+  <div class="container">
+    <div class="empty_placeholder">
+    </div>
+    <form class="" action="index.html" method="post">
+      <div class="columns">
+        <div class="column is-three-quarters">
+          <div class="new_post">
+            <input class="single_input" type="text" placeholder="Title">
+            <div id="article_textarea" class="article_textarea">
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="sidebar-divider">
+            <p class="is-size-5"><strong>Date</strong></p>
+            <div class="field has-addons">
+              <p class="control">
+                <a class="button is-static">
+                  <ion-icon name="calendar"></ion-icon>
+                </a>
+              </p>
+              <p class="control is-expanded">
+                <input data-toggle="datepicker" class="input datepicker" readonly>
+              </p>
+            </div>
+            <div class="field has-addons">
+              <p class="control">
+                <a class="button is-static">
+                  <ion-icon name="clock"></ion-icon>
+                </a>
+              </p>
+              <p class="control is-expanded">
+                <input class="input clockpicker" readonly>
+              </p>
+            </div>
+          </div><!-- close tag for sidebar divider -->
+          <div class="sidebar-divider">
+            <p class="is-size-5"><strong>Categories</strong></p>
+            <div class="field">
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select>
+                    <option>Select dropdown</option>
+                    <option>With options</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-divider">
+            <p class="is-size-5"><strong>Tags</strong></p>
+            <input class="input no-focus" type="tags" placeholder="Add Tag" value="Tag1,Tag2,Tag3">
+          </div>
+          <a class="button is-primary">Submit</a>
+        </div>
+      </div>
+    </form>
+  </div><!-- close tag for container div -->
+<?php
+  include 'footerforpost.php';
+?>

@@ -1,0 +1,104 @@
+/* dashboard css */
+html{
+  height: 100%;
+  background-color:#fafafa;
+}
+body {
+  background-color:#fafafa;
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding-bottom: 5rem;
+}
+
+/* login css below*/
+
+.hero.is-success {
+  background: #F2F6FA;
+}
+.hero .nav, .hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.box {
+  margin-top: 2rem;
+}
+
+input {
+  font-weight: 300;
+}
+p {
+  font-weight: 700;
+}
+p.subtitle {
+  padding-top: 1rem;
+}
+
+/* login css above */
+
+.container {
+  min-height: 100%;
+}
+
+.empty_placeholder {
+  height: 2rem;
+}
+.dashboard_card {
+  box-shadow: 0 3rem 3rem -1rem rgba(10,10,10,0.2);
+}
+.new_post{
+  border:1px solid #ccc;
+  border-radius:3px;
+  margin-bottom: 1rem;
+}
+
+.single_input {
+  width: 100%;
+  overflow: auto;
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.ql-container.ql-snow, .ql-toolbar.ql-snow {
+  border:0;
+}
+.ql-editor {
+  min-height: 300px;
+}
+
+.article_textarea {
+  margin-bottom: 1rem;
+}
+
+.sidebar-divider, .divider {
+  margin-bottom: 1rem;
+}
+
+[type=tags]+.tagsinput input:focus {
+outline-width: 0;
+}
+/* the code above is intend to remove the outline border while user add a tag, this selector looks like a shit*/
+
+.avatarimg {
+  margin: 2rem 3rem;
+  border: 1px dashed #ccc
+}
+.avatarimg img {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+
+footer {
+  position: absolute;
+    right: 0;
+    bottom: -3rem;
+    left: 0;
+    text-align: center;
+}

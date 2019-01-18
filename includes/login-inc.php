@@ -1,17 +1,14 @@
 <?php
-
-if (isset($_POST['submit'])) {
-
+	if (isset($_POST['submit'])) {
 	include 'config.php';
-
 	$unm = mysqli_real_escape_string($db, $_POST['username']);
 	$pwd = mysqli_real_escape_string($db, $_POST['password']);
 
 	if (empty($unm) || empty($pwd)) {
 		header("Location: ../admin/login.php?login=empty");
-		exit();
+	exit();
 	} else {
-		$sql = "SELECT * FROM iceland_users WHERE name='$unm'";
+		$sql = "SELECT * FROM blink_users WHERE name='$unm'";
 		$result = mysqli_query($db, $sql);
 		$resultCheck = mysqli_num_rows($result);
 		if ($resultCheck < 1) {
@@ -27,7 +24,7 @@ if (isset($_POST['submit'])) {
 				}elseif ($hashedPwdCheck == true) {
 					// Login the user here
 					$_SESSION['loggedin'] = true;
-				    $_SESSION['unm'] = $row['username'];
+				    $_SESSION['uid'] = $row['uid'];
 				    header("Location: ../admin");				}
 			}
 		}
