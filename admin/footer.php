@@ -5,7 +5,7 @@
     is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
   </p>
 </footer>
-<script src="../js/jquery-3.3.1.min.js"></script>
+<!-- <script src="../js/jquery-3.3.1.min.js"></script> -->
 <script src="../js/dashboard.js"></script>
 </body>
 </html>

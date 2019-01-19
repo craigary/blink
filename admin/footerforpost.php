@@ -58,11 +58,16 @@ $('.clockpicker').clockpicker({
 
 var content = "<?php echo $singleArticleResult['text']; ?>";
 quill.clipboard.dangerouslyPasteHTML(content);
-$("#submit").click(function(){
-$("#hiddenTextarea").val(quill.root.innerHTML);
-$("#hiddenDescriptionTextarea").val(descquill.root.innerHTML);
-})
 
+function pushToHiddenTextarea() {
+  document.getElementById("hiddenTextarea").value = quill.root.innerHTML;
+  document.getElementById("hiddenDescriptionTextarea").value = descquill.root.innerHTML;
+}
+
+// $("#submit").click(function(){
+// $("#hiddenTextarea").val(quill.root.innerHTML);
+// $("#hiddenDescriptionTextarea").val(descquill.root.innerHTML);
+// })
 
 </script>
 </body>

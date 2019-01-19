@@ -10,7 +10,7 @@ include 'header.php';
           <div class="new_post">
             <input class="single_input" type="text" name="postTitle" placeholder="Title">
             <div id="article_textarea" class="article_textarea"></div>
-            <textarea id="hiddenTextarea" name="hiddenTextarea" style="display:none;"></textarea>
+            <textarea id="hiddenTextarea" name="hiddenTextarea"></textarea>
           </div>
           <div class="new_post">
             <div id="discription_textarea" class="discription_textarea"></div>
@@ -61,7 +61,7 @@ include 'header.php';
             </div>
           </div>
           <div class="sidebar-divider">
-          <input class="button is-primary" id="submit" type="submit" name="submit" value="Submit">
+          <input class="button is-primary" id="submit" type="submit" name="submit" value="Submit" onclick="pushToHiddenTextarea()">
           </div>
         </div>
       </div>
