@@ -9,7 +9,6 @@
 <script src="../js/datepicker.min.js"></script>
 <script src="../js/jquery-clockpicker.min.js"></script>
 <script src="../js/quill.js"></script>
-<script src="../js/bulma-tagsinput.min.js"></script>
 <script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
 <script>
 
@@ -36,6 +35,10 @@ var quill = new Quill('#article_textarea', {
   placeholder: 'Compose an epic...',
   theme: 'snow'
 });
+
+var descquill = new Quill('#discription_textarea', {});
+
+
 var c = new Date();
 if (c.getMinutes() < 10) {
   var currentTime = c.getHours() + ":0" + c.getMinutes();
@@ -52,9 +55,14 @@ $('.clockpicker').clockpicker({
   twelvehour: false,
   donetext: "Okay"
 });
-bulmaTagsinput.attach();
+
 var content = "<?php echo $singleArticleResult['text']; ?>";
 quill.clipboard.dangerouslyPasteHTML(content);
+$("#submit").click(function(){
+$("#hiddenTextarea").val(quill.root.innerHTML);
+$("#hiddenDescriptionTextarea").val(descquill.root.innerHTML);
+})
+
 
 </script>
 </body>

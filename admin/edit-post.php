@@ -1,16 +1,6 @@
 <?php
 include 'header.php';
-
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-} else {
-    header('Location: posts.php');
-}
-  $sql = 'SELECT * FROM blink_contents WHERE cid = '.$id;
-  $result = mysqli_query($db, $sql);
-  $singleArticleResult = mysqli_fetch_assoc($result);
 ?>
-
   <div class="container">
     <div class="empty_placeholder">
     </div>
@@ -18,7 +8,7 @@ if (isset($_GET['id'])) {
       <div class="columns">
         <div class="column is-three-quarters">
           <div class="new_post">
-            <input class="single_input" type="text" placeholder="Title" value="<?php echo $singleArticleResult[title];?>">
+            <input class="single_input" type="text" placeholder="Title">
             <div id="article_textarea" class="article_textarea">
             </div>
           </div>
@@ -69,7 +59,6 @@ if (isset($_GET['id'])) {
       </div>
     </form>
   </div><!-- close tag for container div -->
-
 <?php
   include 'footerforpost.php';
 ?>

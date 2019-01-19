@@ -14,7 +14,6 @@ $userResult = mysqli_fetch_assoc($result);
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="../style/bulmaswatch.min.css">
-    <link rel="stylesheet" href="../style/bulma-tagsinput.min.css">
     <link rel="stylesheet" href="../style/datepicker.min.css">
     <link rel="stylesheet" href="../style/jquery-clockpicker.min.css">
     <link rel="stylesheet" href="../style/quill.snow.css">

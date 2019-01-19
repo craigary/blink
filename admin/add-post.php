@@ -4,17 +4,22 @@ include 'header.php';
   <div class="container">
     <div class="empty_placeholder">
     </div>
-    <form class="" action="index.html" method="post">
+    <form action="../includes/post-inc.php" method="post">
       <div class="columns">
         <div class="column is-three-quarters">
           <div class="new_post">
-            <input class="single_input" type="text" placeholder="Title">
-            <div id="article_textarea" class="article_textarea">
-            </div>
+            <input class="single_input" type="text" name="postTitle" placeholder="Title">
+            <div id="article_textarea" class="article_textarea"></div>
+            <textarea id="hiddenTextarea" name="hiddenTextarea" style="display:none;"></textarea>
+          </div>
+          <div class="new_post">
+            <div id="discription_textarea" class="discription_textarea"></div>
+            <textarea id="hiddenDescriptionTextarea" name="hiddenDescriptionTextarea" style="display:none;"></textarea>
           </div>
         </div>
         <div class="column">
           <div class="sidebar-divider">
+            <input type="text" name="uid" value="<?php echo $uid; ?>" style="display:none;">
             <p class="is-size-5"><strong>Date</strong></p>
             <div class="field has-addons">
               <p class="control">
@@ -23,7 +28,7 @@ include 'header.php';
                 </a>
               </p>
               <p class="control is-expanded">
-                <input data-toggle="datepicker" class="input datepicker" readonly>
+                <input data-toggle="datepicker" class="input datepicker" name="date" readonly>
               </p>
             </div>
             <div class="field has-addons">
@@ -33,7 +38,7 @@ include 'header.php';
                 </a>
               </p>
               <p class="control is-expanded">
-                <input class="input clockpicker" readonly>
+                <input class="input clockpicker" name="clock" readonly>
               </p>
             </div>
           </div><!-- close tag for sidebar divider -->
@@ -42,19 +47,22 @@ include 'header.php';
             <div class="field">
               <div class="control">
                 <div class="select is-fullwidth">
-                  <select>
-                    <option>Select dropdown</option>
-                    <option>With options</option>
+                  <select name="categoryId">
+                    <?php
+                      $sql = "SELECT * FROM blink_metas WHERE type = 'category';";
+                      $cateResult = mysqli_query($db, $sql);
+                      while ($categoryResult = mysqli_fetch_assoc($cateResult)){
+                        echo '<option value="'.$categoryResult['mid'].'">'.$categoryResult['name'].'</option>';
+                      }
+                    ?>
                   </select>
                 </div>
               </div>
             </div>
           </div>
           <div class="sidebar-divider">
-            <p class="is-size-5"><strong>Tags</strong></p>
-            <input class="input no-focus" type="tags" placeholder="Add Tag" value="Tag1,Tag2,Tag3">
+          <input class="button is-primary" id="submit" type="submit" name="submit" value="Submit">
           </div>
-          <a class="button is-primary">Submit</a>
         </div>
       </div>
     </form>

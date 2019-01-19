@@ -67,6 +67,11 @@ p.subtitle {
 .ql-container.ql-snow, .ql-toolbar.ql-snow {
   border:0;
 }
+
+#discription_textarea .ql-editor {
+  min-height: 100px;
+}
+
 .ql-editor {
   min-height: 300px;
 }

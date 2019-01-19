@@ -3,7 +3,6 @@
 	include 'config.php';
 	$unm = mysqli_real_escape_string($db, $_POST['username']);
 	$pwd = mysqli_real_escape_string($db, $_POST['password']);
-
 	if (empty($unm) || empty($pwd)) {
 		header("Location: ../admin/login.php?login=empty");
 	exit();
@@ -29,7 +28,6 @@
 			}
 		}
 	}
-
 } else {
 	header("Location: ../admin/login.php?login=error");
 	exit();

@@ -1,6 +1,6 @@
 <?php
   include 'header.php';
-  $sql = "SELECT * FROM blink_contents ORDER BY modified DESC";
+  $sql = "SELECT * FROM blink_contents ORDER BY created DESC";
   $result = mysqli_query($db, $sql);
 ?>
   <div class="container">
@@ -41,9 +41,10 @@
           echo '<tr>';
           echo '<td></td>';
           echo '<td>'.$contentResult['title'].'</td>';
-          $sql = "SELECT * FROM blink_metas WHERE mid = ".$contentResult['categories']." & 'type' = 'category' ORDER BY mid DESC";
-          $stmt2 = mysqli_query($db,$sql);
-          $cate = mysqli_fetch_assoc($stmt2);
+            $mid = $contentResult['categories'];
+            $sql2 = "SELECT * FROM blink_metas WHERE mid = ".$mid." AND type = 'category'";
+            $stmt2 = mysqli_query($db,$sql2);
+            $cate = mysqli_fetch_assoc($stmt2);
           echo '<td>'.$cate['name'].'</td>';
           echo '<td>'.$userResult['screenName'].'</td>';
           echo '<td>'.date('jS M Y', strtotime($contentResult['created'])).'</td>';
@@ -52,7 +53,6 @@
           ?>
           <a href="javascript:delpost('<?php echo $contentResult['cid'];?>','<?php echo $contentResult['title'];?>')">Delete</a>
           <?php
-
           echo '</td>';
           echo '</tr>';
         }
