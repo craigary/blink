@@ -28,7 +28,7 @@ include 'header.php';
                 </a>
               </p>
               <p class="control is-expanded">
-                <input data-toggle="datepicker" class="input datepicker" name="date" readonly>
+                <input type="date" class="input" id="datepicker" name="date">
               </p>
             </div>
             <div class="field has-addons">
@@ -38,7 +38,7 @@ include 'header.php';
                 </a>
               </p>
               <p class="control is-expanded">
-                <input class="input clockpicker" name="clock" readonly>
+                <input class="input" id="clockpicker" type="time" name="clock">
               </p>
             </div>
           </div><!-- close tag for sidebar divider -->
@@ -61,7 +61,7 @@ include 'header.php';
             </div>
           </div>
           <div class="sidebar-divider">
-          <input class="button is-primary" id="submit" type="submit" name="submit" value="Submit" onclick="pushToHiddenTextarea()">
+          <input class="button is-primary" id="submit" type="submit" name="submit" value="Submit">
           </div>
         </div>
       </div>

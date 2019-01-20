@@ -14,13 +14,10 @@ $userResult = mysqli_fetch_assoc($result);
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="../style/bulmaswatch.min.css">
-    <link rel="stylesheet" href="../style/datepicker.min.css">
-    <link rel="stylesheet" href="../style/jquery-clockpicker.min.css">
-    <link rel="stylesheet" href="../style/quill.snow.css">
+    <link rel="stylesheet" href="../style/pell.min.css">
     <link rel="stylesheet" href="../style/dashboard.css">
   </head>
   <body>
-
   <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">

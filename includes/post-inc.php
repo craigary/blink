@@ -7,7 +7,6 @@ if ($_POST['submit']=="Submit") {
     $categoryId = mysqli_real_escape_string($db, $_POST['categoryId']);
     $timeStamp = mysqli_real_escape_string($db, $_POST['date'])." ".mysqli_real_escape_string($db, $_POST['clock']);
     $uid = mysqli_real_escape_string($db, $_POST['uid']);
-
     if (empty($postTitle)) {
         header("Location: ../admin/add-post.php?action=emptytitle");
         exit();

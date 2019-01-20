@@ -5,39 +5,20 @@
     is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
   </p>
 </footer>
-<script src="../js/jquery-3.3.1.min.js"></script>
-<script src="../js/datepicker.min.js"></script>
-<script src="../js/jquery-clockpicker.min.js"></script>
-<script src="../js/quill.js"></script>
+<!-- <script src="../js/jquery-3.3.1.min.js"></script> -->
+<script src="../js/pell.min.js"></script>
 <script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
 <script>
 
-var quill = new Quill('#article_textarea', {
-  modules: {
-    toolbar: [
-      [{
-        header: []
-      }],
-      ['bold', 'italic', 'underline', 'link'],
-      [{
-        color: []
-      }, {
-        background: []
-      }],
-      [{
-        list: 'ordered'
-      }, {
-        list: 'bullet'
-      }],
-      ['clean']
-    ]
-  },
-  placeholder: 'Compose an epic...',
-  theme: 'snow'
-});
+window.pell.init({
+  element: document.getElementById('article_textarea'),
+  onChange: html => document.getElementById('hiddenTextarea').innerHTML = html
+})
 
-var descquill = new Quill('#discription_textarea', {});
-
+window.pell.init({
+  element: document.getElementById('discription_textarea'),
+  onChange: html => document.getElementById('hiddenDescriptionTextarea').innerHTML = html
+})
 
 var c = new Date();
 if (c.getMinutes() < 10) {
@@ -45,29 +26,22 @@ if (c.getMinutes() < 10) {
 } else {
   var currentTime = c.getHours() + ":" + c.getMinutes();
 }
-$("input.clockpicker").attr("value", currentTime);
 
-$('[data-toggle="datepicker"]').datepicker({
-  autoPick: true,
-  format: 'yyyy-mm-dd'
-});
-$('.clockpicker').clockpicker({
-  twelvehour: false,
-  donetext: "Okay"
-});
-
-var content = "<?php echo $singleArticleResult['text']; ?>";
-quill.clipboard.dangerouslyPasteHTML(content);
-
-function pushToHiddenTextarea() {
-  document.getElementById("hiddenTextarea").value = quill.root.innerHTML;
-  document.getElementById("hiddenDescriptionTextarea").value = descquill.root.innerHTML;
+var dd = c.getDate();
+var mm = c.getMonth()+1;
+var yyyy = c.getFullYear();
+if(dd<10) {
+    dd = '0'+dd
+}
+if(mm<10) {
+    mm = '0'+mm
 }
 
-// $("#submit").click(function(){
-// $("#hiddenTextarea").val(quill.root.innerHTML);
-// $("#hiddenDescriptionTextarea").val(descquill.root.innerHTML);
-// })
+var currentDate = yyyy + '-' + mm + '-' + dd;
+document.getElementById("clockpicker").value = currentTime;
+document.getElementById("datepicker").value = currentDate;
+
+var content = "<?php echo $singleArticleResult['text']; ?>";//获取文章正文
 
 </script>
 </body>
