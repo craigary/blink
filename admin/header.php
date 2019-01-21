@@ -7,6 +7,10 @@ $uid = $_SESSION['uid'];
 $sql = "SELECT * FROM blink_users WHERE uid='$uid'";
 $result = mysqli_query($db, $sql);
 $userResult = mysqli_fetch_assoc($result);
+
+$settingsSql = "SELECT * FROM blink_options WHERE user = 0 or ".$uid;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
