@@ -13,25 +13,26 @@
       <div class="column">
         <div class="divider">
           <p class="is-size-4"><strong>Info</strong></p>
-          <form action="">
+          <form action="" method="post">
+            <input type="text" name="uid" value="<?php echo $uid; ?>" style="display:none;">
             <div class="field">
               <label class="label">Display Name</label>
               <div class="control">
-                <input class="input" type="text" placeholder="Display Name" value="">
+                <input class="input" type="text" placeholder="Display Name" value="<?php echo $userResult['screenName']; ?>">
               </div>
               <p class="help">This username is available</p>
             </div>
             <div class="field">
               <label class="label">Website</label>
               <div class="control">
-                <input class="input" type="email" placeholder="Email input" value="">
+                <input class="input" type="text" placeholder="Email input" value="<?php echo $userResult['website']; ?>">
               </div>
               <p class="help">This username is available</p>
             </div>
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <input class="input" type="email" placeholder="Email input" value="">
+                <input class="input" type="email" placeholder="Email input" value="<?php echo $userResult['mail']; ?>">
               </div>
               <p class="help">This username is available</p>
             </div>
@@ -44,16 +45,17 @@
         </div>
         <div class="divider">
           <p class="is-size-4"><strong>Preferences</strong></p>
-          <form action="">
+          <form action="../includes/settings-inc.php" method="post" name="preferences">
+            <input type="text" name="uid" value="<?php echo $uid; ?>" style="display:none;">
             <div class="field">
               <label class="label">Use Markdown Editor</label>
               <div class="control">
                 <label class="radio">
-                  <input type="radio" name="foobar">
+                  <input type="radio" name="markdown" value="1">
                   Yes
                 </label>
                 <label class="radio">
-                  <input type="radio" name="foobar" checked>
+                  <input type="radio" name="markdown" value="0">
                   No
                 </label>
               </div>
@@ -61,7 +63,7 @@
             </div>
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link">Submit</button>
+                <button class="button is-link" type="submit" name="preferences" value="1">Submit</button>
               </div>
             </div>
           </form>
@@ -98,5 +100,19 @@
     </div>
   </div>
 <?php
+// while($dsb = $settingsResult){
+//   echo $dsb['name'];
+//   echo "-";
+//   echo $dsb['user'];
+//   echo "-";
+//   echo $dsb['value'];
+// };
+  // echo "<script>window.onload=function (){";
+  // if ($settingsResult['markdown'] == 0) {
+  //   echo "document.preferences.markdown[1].checked=true;"; // 'No' will checked;
+  // } elseif ($settingsResult['markdown'] == 1) {
+  //   echo "document.preferences.markdown[0].checked=true;"; // 'Yes' will checked;
+  // }
+  // echo "}</script>";
   include 'footer.php';
 ?>

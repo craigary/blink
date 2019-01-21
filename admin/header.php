@@ -7,10 +7,8 @@ $uid = $_SESSION['uid'];
 $sql = "SELECT * FROM blink_users WHERE uid='$uid'";
 $result = mysqli_query($db, $sql);
 $userResult = mysqli_fetch_assoc($result);
-
 $settingsSql = "SELECT * FROM blink_options WHERE user = 0 or ".$uid;
-
-
+$settingsResult = mysqli_fetch_assoc(mysqli_query($db, $settingsSql));
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -73,3 +71,4 @@ $settingsSql = "SELECT * FROM blink_options WHERE user = 0 or ".$uid;
     </div>
   </div>
 </nav>
+<input type="text" name="" id="settingshiddentestarea" value="">
