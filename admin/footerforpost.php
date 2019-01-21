@@ -10,12 +10,12 @@
 <script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
 <script>
 
-window.pell.init({
+var article_textarea = pell.init({
   element: document.getElementById('article_textarea'),
   onChange: html => document.getElementById('hiddenTextarea').innerHTML = html
 })
 
-window.pell.init({
+var discription_textarea = pell.init({
   element: document.getElementById('discription_textarea'),
   onChange: html => document.getElementById('hiddenDescriptionTextarea').innerHTML = html
 })
@@ -41,7 +41,13 @@ var currentDate = yyyy + '-' + mm + '-' + dd;
 document.getElementById("clockpicker").value = currentTime;
 document.getElementById("datepicker").value = currentDate;
 
-var content = "<?php echo $singleArticleResult['text']; ?>";//获取文章正文
+var content = "<?php echo $singleArticleResult['text']; ?>";//grab content
+var description = "<?php echo $singleArticleResult['description']; ?>";//grab description
+
+article_textarea.content.innerHTML = content;
+document.getElementById('hiddenTextarea').innerHTML = content;
+discription_textarea.content.innerHTML = description;
+document.getElementById('hiddenDescriptionTextarea').innerHTML = description;
 
 </script>
 </body>
