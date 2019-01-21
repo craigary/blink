@@ -23,7 +23,6 @@ if ($_POST['submit']=="Submit") {
                 }
             } else {
                 $sql = "INSERT INTO blink_contents (description, created, categories, title, text, authorid, status) VALUES ('$postDescription', '$timeStamp', $categoryId,'$postTitle','$postContent',$uid,'publish');";
-                echo $sql;
                 $result = mysqli_query($db, $sql);
                 header("Location: ../admin/posts.php?action=posted");
                 exit();

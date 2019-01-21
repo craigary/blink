@@ -6,13 +6,13 @@
   if($cid == ''){
     echo "<script>window.onload=function(){document.getElementById('categorySubmitButton').value = 'Add New'}</script>";
   } else {
-    echo "<script>window.onload=function(){document.getElementById('categorySubmitButton').value = 'Update'}</script>";
     $sql2 = "SELECT * FROM blink_metas WHERE mid = ".$cid;
     if (mysqli_num_rows(mysqli_query($db, $sql2)) == 0) {
       echo "这特么的怎么了"; //if there is no category find based on id,
     }else {
         $singleCategoryResult = mysqli_fetch_assoc(mysqli_query($db, $sql2));
     }
+    echo "<script>window.onload=function(){document.getElementById('categorySubmitButton').value = 'Update';document.getElementById('metaId').value = '".$singleCategoryResult['mid']."'}</script>";
   }
  ?>
 <div class="container">
@@ -46,29 +46,30 @@
       </table>
     </div>
     <div class="column">
-      <form class="" method="post">
+      <form action="../includes/cate-inc.php" method="post">
+        <input type="text" name="metaId" id="metaId" value="" style="display:none">
         <div class="field">
           <label class="label">Category Name</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Category Name" value="<?php echo $singleCategoryResult['name'] ?>">
+            <input class="input" type="text" name="metaName" placeholder="Category Name" value="<?php echo $singleCategoryResult['name'] ?>">
           </div>
           <p class="help">This username is available</p>
         </div>
         <div class="field">
           <label class="label">Abbreviation Name*</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Category Name" value="<?php echo $singleCategoryResult['slug'] ?>">
+            <input class="input" type="text" name="metaSlug" placeholder="Abbreviation Name" value="<?php echo $singleCategoryResult['slug'] ?>">
           </div>
           <p class="help">* we will use this as the link address.</p>
         </div>
         <div class="field">
           <label class="label">Description*</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Category Name" value="<?php echo $singleCategoryResult['description'] ?>">
+            <input class="input" type="text" name="metaDescription" placeholder="Category Name" value="<?php echo $singleCategoryResult['description'] ?>">
           </div>
           <p class="help">* we will use this as the link address.</p>
         </div>
-        <input type="submit" name="button" id="categorySubmitButton" class="button is-primary" value="Add New">
+        <input type="submit" name="submit" id="categorySubmitButton" class="button is-primary" value="Add New">
       </form>
     </div>
   </div>
