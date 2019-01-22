@@ -7,8 +7,12 @@ $uid = $_SESSION['uid'];
 $sql = "SELECT * FROM blink_users WHERE uid='$uid'";
 $result = mysqli_query($db, $sql);
 $userResult = mysqli_fetch_assoc($result);
-$settingsSql = "SELECT * FROM blink_options WHERE user = 0 or ".$uid;
-$settingsResult = mysqli_fetch_assoc(mysqli_query($db, $settingsSql));
+$settingsSql = "SELECT name,value FROM blink_options WHERE user = 0 or ".$uid;
+$settingsResult = mysqli_query($db, $settingsSql);
+$settings = array();
+while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
+  $settings[$settingItem['name']] = $settingItem['value'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -71,4 +75,3 @@ $settingsResult = mysqli_fetch_assoc(mysqli_query($db, $settingsSql));
     </div>
   </div>
 </nav>
-<input type="text" name="" id="settingshiddentestarea" value="">

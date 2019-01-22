@@ -51,11 +51,11 @@
               <label class="label">Use Markdown Editor</label>
               <div class="control">
                 <label class="radio">
-                  <input type="radio" name="markdown" value="1">
+                  <input type="radio" name="markdown" id="markdownYes" value="1">
                   Yes
                 </label>
                 <label class="radio">
-                  <input type="radio" name="markdown" value="0">
+                  <input type="radio" name="markdown" id="markdownNo" value="0">
                   No
                 </label>
               </div>
@@ -100,19 +100,16 @@
     </div>
   </div>
 <?php
-// while($dsb = $settingsResult){
-//   echo $dsb['name'];
-//   echo "-";
-//   echo $dsb['user'];
-//   echo "-";
-//   echo $dsb['value'];
-// };
-  // echo "<script>window.onload=function (){";
-  // if ($settingsResult['markdown'] == 0) {
-  //   echo "document.preferences.markdown[1].checked=true;"; // 'No' will checked;
-  // } elseif ($settingsResult['markdown'] == 1) {
-  //   echo "document.preferences.markdown[0].checked=true;"; // 'Yes' will checked;
-  // }
-  // echo "}</script>";
+
+  echo "<script>window.onload=function (){";
+  if ($settings['markdown'] == 1) {
+    echo "document.getElementById('markdownYes').checked=true;";
+    echo "document.getElementById('markdownNo').checked=false;";
+  } else{
+    echo "document.getElementById('markdownNo').checked=true;";
+    echo "document.getElementById('markdownYes').checked=false;";
+  }
+  echo "}</script>";
   include 'footer.php';
+
 ?>
