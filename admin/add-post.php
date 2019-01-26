@@ -8,19 +8,19 @@ include 'header.php';
       <div class="columns">
         <div class="column is-three-quarters">
           <div class="new_post">
-            <input class="single_input" type="text" name="postTitle" placeholder="Title">
+            <input class="single_input" type="text" name="postTitle" placeholder="Title" value="">
             <div id="article_textarea" class="article_textarea"></div>
-            <textarea id="hiddenTextarea" name="hiddenTextarea"></textarea>
+            <textarea id="hiddenTextarea" name="hiddenTextarea" style="display:none;"></textarea>
           </div>
           <div class="new_post">
-            <div id="discription_textarea" class="discription_textarea"></div>
+            <div id="description_textarea" class="description_textarea"></div>
             <textarea id="hiddenDescriptionTextarea" name="hiddenDescriptionTextarea" style="display:none;"></textarea>
           </div>
         </div>
         <div class="column">
           <div class="sidebar-divider">
             <input type="text" name="uid" value="<?php echo $uid; ?>" style="display:none;">
-            <p class="is-size-5"><strong>Date</strong></p>
+            <p class="is-size-5"><strong>Date & Time</strong></p>
             <div class="field has-addons">
               <p class="control">
                 <a class="button is-static">
@@ -28,7 +28,7 @@ include 'header.php';
                 </a>
               </p>
               <p class="control is-expanded">
-                <input type="date" class="input" id="datepicker" name="date">
+                <input class="input" id="datepicker" name="date" readonly>
               </p>
             </div>
             <div class="field has-addons">
@@ -38,7 +38,7 @@ include 'header.php';
                 </a>
               </p>
               <p class="control is-expanded">
-                <input class="input" id="clockpicker" type="time" name="clock">
+                <input class="input" id="timepicker" name="time" readonly>
               </p>
             </div>
           </div><!-- close tag for sidebar divider -->

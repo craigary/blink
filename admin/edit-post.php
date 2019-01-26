@@ -19,17 +19,18 @@ if($id== ''){
           <div class="new_post">
             <input class="single_input" type="text" name="postTitle" placeholder="Title" value="<?php echo $singleArticleResult['title']; ?>">
             <div id="article_textarea" class="article_textarea"></div>
-            <textarea id="hiddenTextarea" name="hiddenTextarea"></textarea>
+            <textarea id="hiddenTextarea" name="hiddenTextarea" style="display:none;"></textarea>
           </div>
           <div class="new_post">
-            <div id="discription_textarea" class="discription_textarea"></div>
-            <textarea id="hiddenDescriptionTextarea" name="hiddenDescriptionTextarea"></textarea>
+            <div id="description_textarea" class="description_textarea"></div>
+            <textarea id="hiddenDescriptionTextarea" name="hiddenDescriptionTextarea" style="display:none;"></textarea>
           </div>
         </div>
         <div class="column">
           <div class="sidebar-divider">
             <input type="text" name="uid" value="<?php echo $uid; ?>" style="display:none;">
-            <p class="is-size-5"><strong>Date</strong></p>
+            <input type="text" name="cid" value="<?php echo $singleArticleResult['cid']; ?>" style="display:none;">
+            <p class="is-size-5"><strong>Date & Time</strong></p>
             <div class="field has-addons">
               <p class="control">
                 <a class="button is-static">
@@ -37,7 +38,7 @@ if($id== ''){
                 </a>
               </p>
               <p class="control is-expanded">
-                <input type="date" class="input" id="datepicker" name="date">
+                <input class="input" id="datepicker" name="date" data-toggle="datepicker" readonly>
               </p>
             </div>
             <div class="field has-addons">
@@ -47,7 +48,7 @@ if($id== ''){
                 </a>
               </p>
               <p class="control is-expanded">
-                <input class="input" id="clockpicker" type="time" name="clock">
+                <input class="input" id="timepicker" name="time">
               </p>
             </div>
           </div><!-- close tag for sidebar divider -->
@@ -61,7 +62,11 @@ if($id== ''){
                       $sql = "SELECT * FROM blink_metas WHERE type = 'category';";
                       $cateResult = mysqli_query($db, $sql);
                       while ($categoryResult = mysqli_fetch_assoc($cateResult)){
-                        echo '<option value="'.$categoryResult['mid'].'">'.$categoryResult['name'].'</option>';
+                        if ($categoryResult['mid'] == $singleArticleResult['categories']) {
+                          echo '<option value="'.$categoryResult['mid'].'" selected="selected">'.$categoryResult['name'].'</option>';
+                        } else {
+                          echo '<option value="'.$categoryResult['mid'].'">'.$categoryResult['name'].'</option>';
+                        }
                       }
                     ?>
                   </select>

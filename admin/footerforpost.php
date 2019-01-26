@@ -1,54 +1,98 @@
-<footer >
+<footer>
   <p>
     <strong>Blink</strong> by <a href="https://craigary.net">Craig Hart</a>. The source code is licensed
     <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
     is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
   </p>
 </footer>
-<!-- <script src="../js/jquery-3.3.1.min.js"></script> -->
-<script src="../js/pell.min.js"></script>
-<script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
-<script>
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/moment.min.js"></script>
+  <script src="../js/quill.min.js"></script>
+  <script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
+  <script src="../js/datepicker.min.js"></script>
+  <script src="../js/jquery.timepicker.min.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script type="text/javascript">
 
-var article_textarea = pell.init({
-  element: document.getElementById('article_textarea'),
-  onChange: html => document.getElementById('hiddenTextarea').innerHTML = html
-})
+  window.onload = function () {
+    $('[data-toggle="datepicker"]').datepicker({
+    });
+    $('#timepicker').timepicker({
+      'timeFormat': 'H:i',
+      'step': 15
+    });
+  }
 
-var discription_textarea = pell.init({
-  element: document.getElementById('discription_textarea'),
-  onChange: html => document.getElementById('hiddenDescriptionTextarea').innerHTML = html
-})
+  var editor = new Quill('#article_textarea', {
+      modules: {
+        'toolbar': [
+         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+         [ 'bold', 'italic', 'underline', 'strike' ],
+         [{ 'align': [] }],
+         [{ 'color': [] }, { 'background': [] }],
+         [{ 'script': 'super' }, { 'script': 'sub' }],
+         ['blockquote', 'code-block' ],
+         [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+         [ 'link', 'image', 'video', 'formula' ],
+         [ 'clean' ]
+       ]
+       },
+      theme: 'snow'
+    });
 
-var c = new Date();
-if (c.getMinutes() < 10) {
-  var currentTime = c.getHours() + ":0" + c.getMinutes();
+    var descEditor = new Quill('#description_textarea', {
+        modules: {
+          'toolbar': [
+           [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+           [ 'bold', 'italic', 'underline', 'strike' ],
+           [{ 'align': [] }],
+           [{ 'color': [] }, { 'background': [] }],
+           [{ 'script': 'super' }, { 'script': 'sub' }],
+           ['blockquote', 'code-block' ],
+           [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+           [ 'link', 'image', 'video', 'formula' ],
+           [ 'clean' ]
+         ]
+         },
+        theme: 'snow'
+      });
+
+var getUrlParameter = function getUrlParameter(sParam) {
+  var sPageURL = window.location.search.substring(1),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
+  for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] === sParam) {
+          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+  }
+};
+
+if (getUrlParameter('id') == undefined) {
+  var getDateAndTime = Date.now();
+  document.getElementById('datepicker').value = moment(getDateAndTime).format('MM/DD/YYYY');
+  document.getElementById('timepicker').value = moment(getDateAndTime).format('HH:mm');
 } else {
-  var currentTime = c.getHours() + ":" + c.getMinutes();
+  var content = "<?php echo $singleArticleResult['text']; ?>";//grab content
+  var description = "<?php echo $singleArticleResult['description']; ?>";//grab description
+  document.getElementById('hiddenTextarea').innerHTML = content;
+  editor.clipboard.dangerouslyPasteHTML(content);
+  document.getElementById('hiddenDescriptionTextarea').innerHTML = description;
+  descEditor.clipboard.dangerouslyPasteHTML(description);
+
+  var getDateAndTime = "<?php echo $singleArticleResult['created']; ?>";
+  document.getElementById('datepicker').value = moment(getDateAndTime).format('MM/DD/YYYY');
+  document.getElementById('timepicker').value = moment(getDateAndTime).format('HH:mm');
 }
 
-var dd = c.getDate();
-var mm = c.getMonth()+1;
-var yyyy = c.getFullYear();
-if(dd<10) {
-    dd = '0'+dd
-}
-if(mm<10) {
-    mm = '0'+mm
-}
+$('#submit').click(function(){
+  $('#hiddenTextarea').val(editor.container.firstChild.innerHTML);
+  $('#hiddenDescriptionTextarea').val(descEditor.container.firstChild.innerHTML);
+});
 
-var currentDate = yyyy + '-' + mm + '-' + dd;
-document.getElementById("clockpicker").value = currentTime;
-document.getElementById("datepicker").value = currentDate;
 
-var content = "<?php echo $singleArticleResult['text']; ?>";//grab content
-var description = "<?php echo $singleArticleResult['description']; ?>";//grab description
-
-article_textarea.content.innerHTML = content;
-document.getElementById('hiddenTextarea').innerHTML = content;
-discription_textarea.content.innerHTML = description;
-document.getElementById('hiddenDescriptionTextarea').innerHTML = description;
-
-</script>
+  </script>
 </body>
 </html>

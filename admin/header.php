@@ -20,7 +20,9 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="../style/bulmaswatch.min.css">
-    <link rel="stylesheet" href="../style/pell.min.css">
+    <link rel="stylesheet" href="../style/quill.snow.css">
+    <link rel="stylesheet" href="../style/datepicker.min.css">
+    <link rel="stylesheet" href="../style/jquery.timepicker.min.css">
     <link rel="stylesheet" href="../style/dashboard.css">
   </head>
   <body>
