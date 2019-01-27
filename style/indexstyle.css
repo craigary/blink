@@ -1,0 +1,163 @@
+/* Author: Craig Hart @ DEC 14, 2018 */
+
+/* Set Base Style */
+
+html, body {
+  color: #2B3E50;
+  background-color: white;
+}
+
+a {
+  color: #2B3E50;
+  text-decoration: none;
+}
+
+a:link, a:focus, a:active {
+  color: #2B3E50;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Blog Header Style Below */
+
+header {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.logo {
+  align-self: center;
+  text-align: center;
+}
+
+.nav {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  color: #2B3E50;
+  align-self: center;
+  display: flex;
+}
+
+.nav a {
+  color: #2B3E50;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0.25rem;
+  margin: 0 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+}
+
+.nav a:link, .nav a:focus, .nav a:active {
+  text-decoration: none;
+  color: #2B3E50;
+}
+
+.nav a:hover {
+  color: #2B3E50;
+  border-bottom: 2px solid #42B983;
+}
+
+a.nav_focus {
+  border-bottom: 2px solid #42B983;
+}
+
+/* Blog Content Style Below */
+
+.post {
+  margin-top: 1.25rem;
+}
+
+.post a:link, .post > a:focus, .post > a:active {
+  text-decoration: none;
+}
+
+.post_title {
+  font-size: 2rem;
+  color: #2B3E50;
+  margin: 0 0 1rem 0;
+}
+
+.post_info {
+  /* height: 1.625rem; */
+  font-size: 1rem;
+}
+
+p.post_date {
+  float: left;
+  color: rgba(43, 62, 80, 0.5); /* move this shit to another theme css file */
+  padding-right: 1rem;
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-right-color: rgba(43, 62, 80, 0.5); /* move this shit to another theme css file */
+}
+
+.post_category {
+  float: left;
+  padding-left: 1rem;
+}
+
+.post_category a{
+  color: #42B983;
+}
+
+.desc {
+  clear: both;
+}
+
+a.post_readmore {
+  color: #42B983;
+}
+
+.post > hr {
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: rgba(43, 62, 80, 0.1);
+}
+
+.post:last-of-child > hr{
+  display: none;
+}
+
+/* Blog Prev / Next Style Below */
+
+.Prev {
+  padding-left: 2.25rem;
+  float: left;
+  background: ; /* put left arrow here!*/
+}
+
+.Next {
+  padding-right: 2.25rem;
+  float: right;
+  background: ; /* put left arrow here!*/
+}
+
+.Prev a, .Next a{
+  color: #42B983;
+  text-decoration: none;
+}
+
+/* Blog Footer Style Below */
+
+footer{
+  clear: both;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: rgba(43, 62, 80, 0.5s);
+}
+
+footer > hr {
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: rgba(43, 62, 80, 0.1);
+}

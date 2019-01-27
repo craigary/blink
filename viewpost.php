@@ -1,4 +1,4 @@
-<?php require('includes/config.php');
+<?php require('includes/config.php'); 
 $id = $_GET['id'];
 // Create a template
 $sql = "SELECT * FROM blink_contents WHERE cid = ?";
@@ -19,16 +19,13 @@ $row = mysqli_fetch_assoc($result);
 	}
 
 require('includes/header.php') ?>
-		<article class="post">
+		<div class="title is-parent">
+		<article class="title is-child typo">
 		<?php
-				echo '<h1 class="post_title">'.$row['title'].'</h1>';
-				echo '<div class="post_info"><p class="post_date">Posted on '.date('jS M Y H:i:s', strtotime($row['modified'])).'</p>';
-					$sql = "SELECT * FROM blink_metas WHERE mid = ".$row['categories']." & 'type' = 'category' ORDER BY mid DESC";
-					$stmt2 = mysqli_query($db,$sql);
-					$cate = mysqli_fetch_assoc($stmt2);
-				echo '<p class="post_category"><a href="/?cid='.$cate['mid'].'" title="'.$cate['description'].'">#'.$cate['name'].'</a></p></div>';
-				echo '<p class="desc">'.$row['text'].'</p>';
-?>
+				echo '<p class="title">'.$row['title'].'</p>';
+				echo '<p class="subtitle">Posted on '.date('jS M Y', strtotime($row['modified'])).'</p>';
+				echo '<div class="content">'.$row['text'].'</div>';
+		?>
 	</article>
-
+	</div>
 <?php require('includes/footer.php') ?>
