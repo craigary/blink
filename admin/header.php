@@ -54,11 +54,8 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
           <a class="navbar-item" href="posts.php">
             Posts
           </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
+          <a class="navbar-item" href="category.php">
+            Categories
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item" href="profile.php">

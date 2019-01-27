@@ -9,21 +9,21 @@ include 'header.php';
       <div class="field">
         <label class="label">Site Name</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Site Name" value="">
+          <input class="input" type="text" placeholder="Site Name" value="<?php echo $settings['title']; ?>">
         </div>
         <p class="help">This username is available</p>
       </div>
       <div class="field">
         <label class="label">Site Address</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Site Address" value="">
+          <input class="input" type="text" placeholder="Site Address" value="<?php echo $settings['siteUrl']; ?>">
         </div>
         <p class="help">This username is available</p>
       </div>
       <div class="field">
         <label class="label">Site Description</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Site Description" value="">
+          <input class="input" type="text" placeholder="Site Description" value="<?php echo $settings['description']; ?>">
         </div>
         <p class="help">This username is available</p>
       </div>
@@ -31,7 +31,7 @@ include 'header.php';
       <div class="field">
         <label class="label">Keywords</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Keywords" value="">
+          <input class="input" type="text" placeholder="Keywords" value="<?php echo $settings['keywords']; ?>">
         </div>
         <p class="help">This username is available</p>
       </div>

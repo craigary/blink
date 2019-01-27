@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+include '../includes/parsedown.php';
 $id = $_GET['id'];
 if($id== ''){
   header('Location: ./');
@@ -18,11 +19,13 @@ if($id== ''){
         <div class="column is-three-quarters">
           <div class="new_post">
             <input class="single_input" type="text" name="postTitle" placeholder="Title" value="<?php echo $singleArticleResult['title']; ?>">
-            <div id="article_textarea" class="article_textarea"></div>
+            <div id="article_textarea" class="article_textarea">
+            </div>
             <textarea id="hiddenTextarea" name="hiddenTextarea" style="display:none;"></textarea>
           </div>
           <div class="new_post">
-            <div id="description_textarea" class="description_textarea"></div>
+            <div id="description_textarea" class="description_textarea">
+            </div>
             <textarea id="hiddenDescriptionTextarea" name="hiddenDescriptionTextarea" style="display:none;"></textarea>
           </div>
         </div>
