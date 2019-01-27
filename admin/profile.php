@@ -13,32 +13,32 @@
       <div class="column">
         <div class="divider">
           <p class="is-size-4"><strong>Info</strong></p>
-          <form action="" method="post">
+          <form action="../includes/settings-inc.php" method="post">
             <input type="text" name="uid" value="<?php echo $uid; ?>" style="display:none;">
             <div class="field">
               <label class="label">Display Name</label>
               <div class="control">
-                <input class="input" type="text" placeholder="Display Name" value="<?php echo $userResult['screenName']; ?>">
+                <input class="input" type="text" name="screenName" placeholder="Display Name" value="<?php echo $userResult['screenName']; ?>">
               </div>
-              <p class="help">This username is available</p>
+              <p class="help">This will display to public</p>
             </div>
             <div class="field">
-              <label class="label">Website</label>
+              <label class="label">Blog Website</label>
               <div class="control">
-                <input class="input" type="text" placeholder="Email input" value="<?php echo $userResult['website']; ?>">
+                <input class="input" name="website" type="text" placeholder="http://" value="<?php echo $userResult['website']; ?>">
               </div>
-              <p class="help">This username is available</p>
+              <p class="help">This is your website</p>
             </div>
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <input class="input" type="email" placeholder="Email input" value="<?php echo $userResult['mail']; ?>">
+                <input class="input" type="text" name="mail" placeholder="Email input" value="<?php echo $userResult['mail']; ?>">
               </div>
-              <p class="help">This username is available</p>
+              <p class="help">We use email to get your avatar</p>
             </div>
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link">Submit</button>
+                <button class="button is-link" name="info" value="1">Submit</button>
               </div>
             </div>
           </form>
@@ -70,28 +70,28 @@
         </div>
         <div class="divider">
           <p class="is-size-4"><strong>Password</strong></p>
-          <form action="">
+          <form action="../includes/settings-inc.php" method="post">
             <div class="field">
               <label class="label">Current Password</label>
               <div class="control">
-                <input class="input" type="text" placeholder="Display Name" value="">
+                <input class="input" name="currentPass" type="password" placeholder="Display Name" value="">
               </div>
             </div>
             <div class="field">
               <label class="label">New Password</label>
               <div class="control">
-                <input class="input" type="email" placeholder="Email input" value="">
+                <input class="input" name="newPass" type="password" placeholder="Email input" value="">
               </div>
             </div>
             <div class="field">
               <label class="label">Conform Password</label>
               <div class="control">
-                <input class="input" type="email" placeholder="Email input" value="">
+                <input class="input" name="doubleCheck" type="password" placeholder="Email input" value="">
               </div>
             </div>
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link">Submit</button>
+                <button class="button is-link" name="changePassword" value="1">Submit</button>
               </div>
             </div>
           </form>
@@ -99,9 +99,9 @@
       </div>
     </div>
   </div>
+<script>
+window.onload=function (){
 <?php
-
-  echo "<script>window.onload=function (){";
   if ($settings['markdown'] == 1) {
     echo "document.getElementById('markdownYes').checked=true;";
     echo "document.getElementById('markdownNo').checked=false;";
@@ -109,7 +109,9 @@
     echo "document.getElementById('markdownNo').checked=true;";
     echo "document.getElementById('markdownYes').checked=false;";
   }
-  echo "}</script>";
+  ?>
+}
+</script>"
+<?php
   include 'footer.php';
-
 ?>

@@ -15,16 +15,18 @@
 			exit();
 		} else {
 			if ($row = mysqli_fetch_assoc($result)) {
-				// De-hashing the password
-				$hashedPwdCheck = password_verify($pwd, $row['password']);
-				if ($hashedPwdCheck == false) {
-					header("Location: ../admin/login.php?login=error");
+				$checkPassword = password_verify($pwd,$row['password']);
+				if ($checkPassword == false) {
+					// echo $checkPassword;
+					// echo "123";
+					header("Location: ../admin/login.php?login=wrongPass");
 					exit();
-				}elseif ($hashedPwdCheck == true) {
+				}elseif ($checkPassword == true) {
 					// Login the user here
-					$_SESSION['loggedin'] = true;
+					  $_SESSION['loggedin'] = true;
 				    $_SESSION['uid'] = $row['uid'];
-				    header("Location: ../admin");				}
+				    header("Location: ../admin");
+					}
 			}
 		}
 	}

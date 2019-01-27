@@ -62,7 +62,6 @@ if ($_POST['submit']=="create") {
             } else {
                     //hashing the pass
                     $hashedPWD =  password_hash($password, PASSWORD_DEFAULT);
-
                     $sql = "UPDATE iceland_users SET username = $username, password = $hashedPWD email = $email WHERE memberID = $memberid;";
                     mysqli_query($db, $sql);
                     header("Location: ../admin/users.php?action=modified");
