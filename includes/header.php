@@ -1,3 +1,11 @@
+<?php
+$settingsSql = "SELECT name,value FROM blink_options WHERE user = 0";
+$settingsResult = mysqli_query($db, $settingsSql);
+$settings = array();
+while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
+  $settings[$settingItem['name']] = $settingItem['value'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +17,10 @@
     		echo $blogName.' - '.$row['postTitle'];
     	}?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/normalize.css">
-    <!-- <link rel="stylesheet" href="style/bulma.min.css"> -->
+    <!-- <link rel="stylesheet" href="style/normalize.css"> -->
 	   <!-- <link rel="stylesheet" href="style/typo.css"> -->
      <link rel="stylesheet" href="style/indexstyle.css">
 	<!-- <link rel="stylesheet" href="style/main.css"> -->
-	<script src="https://use.fontawesome.com/7f9ae733f0.js"></script>
 </head>
 <body>
 	<!-- <div id="wrapper" class="box card4article">
@@ -30,7 +36,7 @@
 		<hr> -->
 <div class="container"><!-- this div will close in footer.php -->
   <header>
-    <div class="logo"><?php echo $blogName; ?></div>
+    <div class="logo"><?php echo $settings['siteName']; ?></div>
     <div class="nav">
       <a href="#" class="nav_focus">blog</a>
       <a href="#">archive</a>

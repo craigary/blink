@@ -3,6 +3,7 @@
 /* Set Base Style */
 
 html, body {
+  font-family: sans-serif;
   color: #2B3E50;
   background-color: white;
 }
@@ -33,6 +34,8 @@ header {
 }
 
 .logo {
+  font-weight: bold;
+  font-size: 2rem;
   align-self: center;
   text-align: center;
 }
@@ -72,59 +75,30 @@ a.nav_focus {
 
 /* Blog Content Style Below */
 
-.post {
-  margin-top: 1.25rem;
-}
-
-.post a:link, .post > a:focus, .post > a:active {
-  text-decoration: none;
-}
-
-.post_title {
+article h1.title{
   font-size: 2rem;
+}
+
+p.info {
   color: #2B3E50;
-  margin: 0 0 1rem 0;
+  opacity: 0.5;
+  margin-bottom: 1rem;
 }
 
-.post_info {
-  /* height: 1.625rem; */
-  font-size: 1rem;
+article.descriptionText img{
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;  
 }
 
-p.post_date {
-  float: left;
-  color: rgba(43, 62, 80, 0.5); /* move this shit to another theme css file */
-  padding-right: 1rem;
-  border-right-width: 2px;
-  border-right-style: solid;
-  border-right-color: rgba(43, 62, 80, 0.5); /* move this shit to another theme css file */
+article.descriptionText p{
+  margin-top: 1rem;
+  margin-bottom: 1rem; 
 }
 
-.post_category {
-  float: left;
-  padding-left: 1rem;
-}
-
-.post_category a{
-  color: #42B983;
-}
-
-.desc {
-  clear: both;
-}
-
-a.post_readmore {
-  color: #42B983;
-}
-
-.post > hr {
-  border-width: 0.5px;
-  border-style: solid;
-  border-color: rgba(43, 62, 80, 0.1);
-}
-
-.post:last-of-child > hr{
-  display: none;
+.button.is-white.readmore:hover{
+  background-color: #42B983;
+  color: white;
 }
 
 /* Blog Prev / Next Style Below */
@@ -132,19 +106,24 @@ a.post_readmore {
 .Prev {
   padding-left: 2.25rem;
   float: left;
-  background: ; /* put left arrow here!*/
 }
 
 .Next {
   padding-right: 2.25rem;
   float: right;
-  background: ; /* put left arrow here!*/
 }
 
 .Prev a, .Next a{
   color: #42B983;
   text-decoration: none;
 }
+
+/* Blog Sidebar: no Sidebar */
+
+.sidebar {
+  display: none;
+}
+
 
 /* Blog Footer Style Below */
 
