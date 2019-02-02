@@ -51,23 +51,26 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="posts.php">
+          <a class="navbar-item" href="../admin/posts.php">
             Posts
           </a>
-          <a class="navbar-item" href="category.php">
+          <a class="navbar-item" href="../admin/pages.php">
+            Pages
+          </a>
+          <a class="navbar-item" href="../admin/category.php">
             Categories
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item" href="profile.php">
+          <a class="navbar-item" href="../admin/profile.php">
             Profile
           </a>
         </div>
       </div>
-      <a class="navbar-item" href="settings.php">Settings</a>
+      <a class="navbar-item" href="../admin/settings.php">Settings</a>
     </div>
     <div class="navbar-end">
-      <a class="navbar-item" href="profile.php"><?php echo $userResult['screenName']; ?></a>
-      <a class="navbar-item" href="logout.php">Logout</a>
+      <a class="navbar-item" href="../admin/profile.php"><?php echo $userResult['screenName']; ?></a>
+      <a class="navbar-item" href="../admin/logout.php">Logout</a>
       <a class="navbar-item">
         Visite Website
       </a>

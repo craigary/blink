@@ -61,6 +61,10 @@ include 'header.php';
             </div>
           </div>
           <div class="sidebar-divider">
+          <p class="is-size-5"><strong>Page</strong></p>
+          <input type="checkbox" class="isPagecheckbox" name="isPage" value="1"> It's a Page<br>
+          </div>
+          <div class="sidebar-divider">
           <input class="button is-primary" id="submit" type="submit" name="submit" value="Submit">
           </div>
         </div>

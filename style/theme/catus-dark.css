@@ -4,17 +4,21 @@
 
 html, body {
   font-family: sans-serif;
-  color: #2B3E50;
-  background-color: white;
+  color: white;
+  background-color: #2B3E50;
 }
 
 a {
-  color: #2B3E50;
+  color: white;
   text-decoration: none;
 }
 
-a:link, a:focus, a:active {
-  color: #2B3E50;
+a:link, a:focus, a:active, a:hover {
+  color: white;
+}
+
+hr {
+  background-color: rgba(245, 245, 245, 0.5)
 }
 
 .container {
@@ -43,13 +47,13 @@ header {
 .nav {
   font-family: "Helvetica Neue", sans-serif;
   font-weight: bold;
-  color: #2B3E50;
+  color: white;
   align-self: center;
   display: flex;
 }
 
 .nav a {
-  color: #2B3E50;
+  color: white;
   display: inline-block;
   box-sizing: border-box;
   padding: 0.25rem;
@@ -61,11 +65,11 @@ header {
 
 .nav a:link, .nav a:focus, .nav a:active {
   text-decoration: none;
-  color: #2B3E50;
+  color: white;
 }
 
 .nav a:hover {
-  color: #2B3E50;
+  color: white;
   border-bottom: 2px solid #42B983;
 }
 
@@ -83,11 +87,11 @@ h1.filter {
 
 article h1.title{
   font-size: 2rem;
-  color: #2B3E50;
+  color: white;
 }
 
 p.info {
-  color: #2B3E50;
+  color: white;
   opacity: 0.5;
   margin-bottom: 1rem;
 }
@@ -103,6 +107,11 @@ article.descriptionText img{
   margin-bottom: 1rem;  
   border-radius: 2px;
 }
+/* 
+article.descriptionText p, article.articleText p{
+  margin-top: 1rem;
+  margin-bottom: 1rem; 
+} */
 
 article.articleText h1,
 article.articleText h2,
@@ -127,6 +136,11 @@ article.articleText h4{
   font-size: 1rem;
 }
 
+.button.is-white.readmore{
+  background-color: transparent;
+  color: white;
+}
+
 .button.is-white.readmore:hover{
   background-color: #42B983;
   color: white;
@@ -134,19 +148,14 @@ article.articleText h4{
 
 /* Blog Prev / Next Style Below */
 
-.Prev {
-  padding-left: 2.25rem;
-  float: left;
+.pagination a {
+  color: white;
 }
 
-.Next {
-  padding-right: 2.25rem;
-  float: right;
-}
-
-.Prev a, .Next a{
-  color: #42B983;
-  text-decoration: none;
+.pagination a:hover {
+  background-color: #42B983;
+  color: white;
+  border-color: #42B983;
 }
 
 /* Blog Sidebar: no Sidebar */
@@ -163,7 +172,7 @@ footer{
   margin-top: 2rem;
   margin-bottom: 4rem;
   text-align: center;
-  color: rgba(43, 62, 80, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 footer a:link {
@@ -171,7 +180,7 @@ footer a:link {
 }
 
 footer a:hover {
-  color: rgb(43, 62, 80);
+  color: white;
 }
 
 /* footer > hr {

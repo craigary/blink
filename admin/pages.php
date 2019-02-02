@@ -1,6 +1,6 @@
 <?php
   include 'header.php';
-  $sql = "SELECT * FROM blink_contents WHERE isPage != 1 ORDER BY created DESC";
+  $sql = "SELECT * FROM blink_contents WHERE isPage = 1 ORDER BY created DESC";
   $result = mysqli_query($db, $sql);
 ?>
   <div class="container">
@@ -30,21 +30,13 @@
       } else {
         echo'<table class="table is-fullwidth is-striped is-narrow is-hoverable">';
           echo'<tr>';
-            echo'<th></th>';
             echo'<th>Title</th>';
-            echo'<th>Category</th>';
             echo'<th>Author</th>';
             echo'<th>Date</th>';
             echo'<th>Modify</th>';
           echo'</tr>';
         while ($contentResult = mysqli_fetch_assoc($result)) {
           echo '<tr>';
-          echo '<td></td>';
-          echo '<td>'.$contentResult['title'].'</td>';
-            $mid = $contentResult['categories'];
-            $sql2 = "SELECT * FROM blink_metas WHERE mid = ".$mid." AND type = 'category'";
-            $stmt2 = mysqli_query($db,$sql2);
-            $cate = mysqli_fetch_assoc($stmt2);
           echo '<td>'.$cate['name'].'</td>';
           echo '<td>'.$userResult['screenName'].'</td>';
           echo '<td>'.date('jS M Y', strtotime($contentResult['created'])).'</td>';

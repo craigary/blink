@@ -1,8 +1,9 @@
 <footer>
-  <hr>
-  <p>
-    &copy;<script type="text/javascript">var year = new Date();document.write(year.getFullYear());</script> | Proudly Powered by CYblog<br>
-    Theme by CH Design
-  </p>
+    <p>Copyright © 2018 <a href="http://craigary.net">Craig Hart</a>. | Powered by Blink | <a href="./admin/">Admin</a></p>
+    <p>Theme by Craig Hart, inspired by Pieter Robberechts.</p>
 </footer>
-</div></body></html>
+<!-- user script below -->
+
+<!-- user script above -->
+</body>
+</html>

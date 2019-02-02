@@ -1,6 +1,5 @@
 <?php
 include 'header.php';
-include '../includes/parsedown.php';
 $id = $_GET['id'];
 if($id== ''){
   header('Location: ./');
@@ -9,6 +8,10 @@ if($id== ''){
   $sql = "SELECT * FROM blink_contents WHERE cid = ".$id;
   $result = mysqli_query($db, $sql);
   $singleArticleResult = mysqli_fetch_assoc($result);
+  if (isset($singleArticleResult['cid']) == false) {
+    header('Location: ./');
+    exit;
+  }
 }
 ?>
   <div class="container">
@@ -17,6 +20,7 @@ if($id== ''){
     <form action="../includes/post-inc.php" method="post">
       <div class="columns">
         <div class="column is-three-quarters">
+        <input type="text" name="postID" value="<?php echo $singleArticleResult['cid']; ?>" style="display:none;">
           <div class="new_post">
             <input class="single_input" type="text" name="postTitle" placeholder="Title" value="<?php echo $singleArticleResult['title']; ?>">
             <div id="article_textarea" class="article_textarea">
@@ -78,7 +82,11 @@ if($id== ''){
             </div>
           </div>
           <div class="sidebar-divider">
-          <input class="button is-primary" id="submit" type="submit" name="submit" value="Submit">
+          <p class="is-size-5"><strong>Page</strong></p>
+            <input type="checkbox" class="isPagecheckbox" name="isPage" value="1"> It's a Page<br>
+          </div>
+          <div class="sidebar-divider">
+            <input class="button is-primary" id="submit" type="submit" name="submit" value="Update">
           </div>
         </div>
       </div>

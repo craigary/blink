@@ -9,7 +9,7 @@ include 'header.php';
       <div class="field">
         <label class="label">Site Name</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Site Name" value="<?php echo $settings['title']; ?>">
+          <input class="input" type="text" placeholder="Site Name" value="<?php echo $settings['siteName']; ?>">
         </div>
         <p class="help">This username is available</p>
       </div>

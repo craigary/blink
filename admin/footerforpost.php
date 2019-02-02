@@ -90,7 +90,7 @@ if (isMarkdown == 0) {
     document.getElementById('datepicker').value = moment(getDateAndTime).format('MM/DD/YYYY');
     document.getElementById('timepicker').value = moment(getDateAndTime).format('HH:mm');
   } else {
-    var content = "<?php echo $singleArticleResult['text']; ?>";//grab content
+    var content = " <?php echo $singleArticleResult['text']; ?> ";//grab content
     var description = "<?php echo $singleArticleResult['description']; ?>";//grab description
     document.getElementById('hiddenTextarea').innerHTML = content;
     editor.clipboard.dangerouslyPasteHTML(content);
@@ -100,6 +100,13 @@ if (isMarkdown == 0) {
     var getDateAndTime = "<?php echo $singleArticleResult['created']; ?>";
     document.getElementById('datepicker').value = moment(getDateAndTime).format('MM/DD/YYYY');
     document.getElementById('timepicker').value = moment(getDateAndTime).format('HH:mm');
+    var isPage = "<?php echo $singleArticleResult['isPage']; ?>";
+    if (isPage == 1) {
+      $('.isPagecheckbox').prop('checked', true);
+    } else {
+      $('.isPagecheckbox').prop('checked', false);
+    }
+    
   }
 
   $('#submit').click(function(){
