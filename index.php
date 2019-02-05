@@ -7,12 +7,9 @@
     <!-- article starts here -->
     <?php
     $result = mysqli_query($db, 'SELECT * FROM blink_contents ORDER BY cid DESC');
-    $postsPerPage = 5;
-    $pages = new Paginator($postsPerPage,'p');
-    $sql = 'SELECT cid FROM blink_contents';
-    $stmt = mysqli_query($db,$sql);
-    $pages->set_total(mysqli_num_rows($stmt));
-    $sql = 'SELECT * FROM blink_contents ORDER BY cid DESC '.$pages->get_limit();
+    $num_rows = mysqli_num_rows($result);
+    $postPerPage = $settings['postPerPage'];
+    $sql = 'SELECT * FROM blink_contents ORDER BY cid DESC '.getLimits($postPerPage, $page);
     $stmt = mysqli_query($db,$sql);
     while($row = mysqli_fetch_assoc($stmt)){
         $sql2 = 'SELECT screenName FROM blink_users WHERE uid = '.$row['authorId'];
@@ -36,8 +33,9 @@
     }
 ?> 
                 <nav class="pagination is-rounded is-white" role="navigation" aria-label="pagination">
-                <a class="pagination-previous">Previous</a>
-                    <a class="pagination-next">Next page</a>
+                <!-- <a class="pagination-previous">Previous</a>
+                <a class="pagination-next">Next page</a> -->
+                <?php displayPagination ($num_rows, $postPerPage, $page) ?>
                 </nav>
                 <hr>
             </div>
