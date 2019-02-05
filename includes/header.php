@@ -19,7 +19,7 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
 			}?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style/bulmaswatch.min.css" />
-    <?php echo '<link rel="stylesheet" href="style/theme/'.$settings['theme'].'" />' ?>
+    <?php echo '<link rel="stylesheet" href="style/theme/'.$settings['theme'].'.css" />' ?>
 </head>
 <body>
     <header>

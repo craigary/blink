@@ -5,14 +5,14 @@ if (isset($_GET['page'])) {
     $page = 1;
 }
 
-function getLimits($postPerPage, $page){
-    $pageStartNum = ($page - 1) * $postPerPage + 1;
-    $limitString = ' LIMIT '.$pageStartNum.', '.$postPerPage;
+function getLimits($postsPerPage, $page){
+    $pageStartNum = ($page - 1) * $postsPerPage + 1;
+    $limitString = ' LIMIT '.$pageStartNum.', '.$postsPerPage;
     return $limitString;
 }
 
-function displayPagination ($num_rows, $postPerPage, $page) {
-    $pageNumber = ceil($num_rows/$postPerPage);
+function displayPagination ($num_rows, $postsPerPage, $page) {
+    $pageNumber = ceil($num_rows/$postsPerPage);
     $pageminusone = $page - 1;
     $pageplusone = $page + 1;
 
@@ -32,6 +32,6 @@ function displayPagination ($num_rows, $postPerPage, $page) {
     echo $finalresult;
 }
 
-// displayPagination ($num_rows, $postPerPage, $page)
+// displayPagination ($num_rows, $postsPerPage, $page)
 
 ?>

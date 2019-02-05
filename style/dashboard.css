@@ -89,6 +89,11 @@ outline-width: 0;
 }
 /* the code above is intend to remove the outline border while user add a tag, this selector looks like a shit*/
 
+#codeArea {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+}
+
 .avatarimg {
   margin: 2rem 3rem;
   border: 1px dashed #ccc
@@ -102,8 +107,8 @@ outline-width: 0;
 
 footer {
   position: absolute;
-    right: 0;
-    bottom: -3rem;
-    left: 0;
-    text-align: center;
+  right: 0;
+  bottom: -3rem;
+  left: 0;
+  text-align: center;
 }

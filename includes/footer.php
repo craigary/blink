@@ -3,7 +3,10 @@
     <p>Theme by Craig Hart, inspired by Pieter Robberechts.</p>
 </footer>
 <!-- user script below -->
-
+<?php
+echo $settings['codeEmbed'];
+?>
 <!-- user script above -->
 </body>
 </html>
+

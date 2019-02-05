@@ -8,8 +8,8 @@
     <?php
     $result = mysqli_query($db, 'SELECT * FROM blink_contents ORDER BY cid DESC');
     $num_rows = mysqli_num_rows($result);
-    $postPerPage = $settings['postPerPage'];
-    $sql = 'SELECT * FROM blink_contents ORDER BY cid DESC '.getLimits($postPerPage, $page);
+    $postsPerPage = $settings['postsPerPage'];
+    $sql = 'SELECT * FROM blink_contents ORDER BY cid DESC '.getLimits($postsPerPage, $page);
     $stmt = mysqli_query($db,$sql);
     while($row = mysqli_fetch_assoc($stmt)){
         $sql2 = 'SELECT screenName FROM blink_users WHERE uid = '.$row['authorId'];
@@ -35,7 +35,7 @@
                 <nav class="pagination is-rounded is-white" role="navigation" aria-label="pagination">
                 <!-- <a class="pagination-previous">Previous</a>
                 <a class="pagination-next">Next page</a> -->
-                <?php displayPagination ($num_rows, $postPerPage, $page) ?>
+                <?php displayPagination ($num_rows, $postsPerPage, $page) ?>
                 </nav>
                 <hr>
             </div>
