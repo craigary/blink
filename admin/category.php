@@ -38,7 +38,9 @@
                 $sql = "SELECT COUNT(*) FROM blink_contents WHERE categories = ".$categoryResults['mid'];
                 $postNumPerCategory = mysqli_fetch_assoc(mysqli_query($db, $sql));
                 echo '<td>'.$postNumPerCategory['COUNT(*)'].'</td>';
-                echo '<td><a href="category.php?cid='.$categoryResults['mid'].'">Modify</a></td>';
+                echo '<td>';
+                echo '<a href="category.php?cid='.$categoryResults['mid'].'">Modify</a> / <a href="../includes/delete-inc.php?from=categories&defaultCategoryId='.$settings['defaultCategory'].'&cid='. $categoryResults['mid'] .'" onclick="return confirm(\'Are you sure?\')">Delete</a>';
+                echo '</td>';
               echo '</tr>';
             }
           }
@@ -69,11 +71,37 @@
           </div>
           <p class="help">* we will use this as the link address.</p>
         </div>
+        <div class="field">
+        <label class="checkbox">
+          <input type="checkbox" id="isDefaultCategory" name ="isDefault"> Default Category
+        </label>
+        </div>
         <input type="submit" name="submit" id="categorySubmitButton" class="button is-primary" value="Add New">
       </form>
     </div>
   </div>
 </div>
+<script>
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+  };
+
+  if (getUrlParameter('cid') == <?php echo $settings['defaultCategory'] ?>) {
+    window.onload = function (){
+      $('#isDefaultCategory').prop('checked', true);
+    }
+  }
+
+</script>
 <?php
 include 'footer.php';
 ?>

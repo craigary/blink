@@ -52,7 +52,7 @@ header {
   display: flex;
 }
 
-.nav a {
+.nav a, .nav p {
   color: white;
   display: inline-block;
   box-sizing: border-box;
@@ -75,6 +75,30 @@ header {
 
 a.nav_focus {
   border-bottom: 2px solid #42B983;
+}
+
+/* Search Overlay Style */
+.searchButton {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.search {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.searchbarwrapper input[type="search"]{
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0);
+  font-size: 60px;
+  font-weight: 300;
+  text-align: center;
+  border: 0px;
+}
+
+.searchbarwrapper input[type="search"]:focus{
+  outline:0;
 }
 
 /* Filter Text Size */

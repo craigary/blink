@@ -29,8 +29,30 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
           <a href="#">archive</a>
           <a href="#">categories</a>
           <a href="#">backyard</a>
+          <p class="searchButton modal-button" data-target="#modal"><ion-icon name="search"></ion-icon></p>
         </div>
       </header>
+<section>
+
+<div id="modal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class = search>
+    <div class="searchbarwrapper">
+       <form autocomplete="off" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <input type="search" id="searchinput" placeholder="type keyword(s) here" >
+      </form>
+    </div>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+</section>
+
+
+
+
 <section>
     <div class="container">
         <div class="columns">

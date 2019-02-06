@@ -52,8 +52,13 @@ include 'header.php';
                       $sql = "SELECT * FROM blink_metas WHERE type = 'category';";
                       $cateResult = mysqli_query($db, $sql);
                       while ($categoryResult = mysqli_fetch_assoc($cateResult)){
-                        echo '<option value="'.$categoryResult['mid'].'">'.$categoryResult['name'].'</option>';
+                        if ($categoryResult['mid'] == $settings['defaultCategory']) {
+                          echo '<option value="'.$categoryResult['mid'].'" selected="selected">'.$categoryResult['name'].'</option>';
+                        } else {
+                          echo '<option value="'.$categoryResult['mid'].'">'.$categoryResult['name'].'</option>';
+                        }
                       }
+
                     ?>
                   </select>
                 </div>

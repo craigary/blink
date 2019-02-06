@@ -37,13 +37,14 @@
           echo'</tr>';
         while ($contentResult = mysqli_fetch_assoc($result)) {
           echo '<tr>';
-          echo '<td>'.$cate['name'].'</td>';
+          echo '<td>'.$contentResult['title'].'</td>';
           echo '<td>'.$userResult['screenName'].'</td>';
           echo '<td>'.date('jS M Y', strtotime($contentResult['created'])).'</td>';
           echo '<td>';
-          echo'<a href="edit-post.php?id='?><?php echo $contentResult['cid'];?><?php echo'">Edit</a> |';
-          ?>
-          <a href="javascript:delpost('<?php echo $contentResult['cid'];?>','<?php echo $contentResult['title'];?>')">Delete</a>
+          echo'<a href="edit-post.php?id='?><?php echo $contentResult['cid'];?><?php echo'">Edit</a> /';
+          ?> 
+
+<a href="../includes/delete-inc.php?from=pages&cid=<?php echo $contentResult['cid'];?>" onclick="return confirm('Are you sure?')">Delete</a>
           <?php
           echo '</td>';
           echo '</tr>';

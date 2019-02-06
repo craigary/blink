@@ -30,7 +30,6 @@ if ($_POST['submit']=="Submit") {
                 }
             } else {
                 $sql = "INSERT INTO blink_contents (description, created, modified, categories, title, text, authorid, status, isPage) VALUES ('$postDescription', NOW(), NOW(), $categoryId,'$postTitle','$postContent',$uid,'publish', $isPage);";
-                echo $sql;
                 $result = mysqli_query($db, $sql);
                 header("Location: ../admin/posts.php?action=posted");
                 exit();
@@ -77,7 +76,7 @@ if ($_POST['submit']=="Submit") {
     }
 }
 else {
-        header("Location: ../admin/index.php");
-        exit();
+    header("Location: ../admin/index.php");
+    exit();
 }
 ?>
