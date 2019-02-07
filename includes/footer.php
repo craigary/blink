@@ -10,7 +10,7 @@ $(document).on('keypress',function(e) {
     if(e.which == 13) {
         event.preventDefault();
         var searchtext = $("#searchinput").val();
-        window.location.href="/filter.php?s=" + searchtext;
+        window.location.href="/filter.php?method=search&s=" + searchtext;
     }
 });
 

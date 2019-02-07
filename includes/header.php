@@ -23,9 +23,9 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
 </head>
 <body>
     <header>
-        <div class="logo"><?php echo $settings['siteName']; ?></div>
+        <div class="logo"><a href="/"><?php echo $settings['siteName']; ?></a></div>
         <div class="nav">
-          <a href="#" class="nav_focus">blog</a>
+          <a href="/" class="nav_focus">blog</a>
           <a href="#">archive</a>
           <a href="#">categories</a>
           <a href="#">backyard</a>
@@ -40,7 +40,7 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
     <div class = search>
     <div class="searchbarwrapper">
        <form autocomplete="off" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-        <input type="search" id="searchinput" placeholder="type keyword(s) here" >
+        <input type="search" id="searchinput" placeholder="type keyword(s) here" autofocus>
       </form>
     </div>
     </div>
