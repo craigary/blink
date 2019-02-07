@@ -1,4 +1,5 @@
-<?php require('includes/config.php');
+<?php
+    require('includes/config.php');
 	require('includes/paginator.php');
     require('includes/header.php'); ?>
     <div class="column sidebar">

@@ -6,6 +6,7 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
   $settings[$settingItem['name']] = $settingItem['value'];
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
