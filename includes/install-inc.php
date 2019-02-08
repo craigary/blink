@@ -56,7 +56,7 @@ if($_POST['letsgosubmit'] == 1) {
           ('siteName', 0, '$siteName'),
           ('siteUrl', 0, '$siteAddress'),
           ('installed', 0, '1'),;";
-        mysqli_query($db, $sql);
+        mysqli_query($sql, $db);
         $hashedPWD =  password_hash($userPass, PASSWORD_DEFAULT);
         $sql = "UPDATE blink_useres set password = '$hashedPWD', `name` = '$username', screenName = '$username', created = NOW() WHERE uid = 1";
         mysqli_query($sql, $db);

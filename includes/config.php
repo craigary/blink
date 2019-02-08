@@ -38,8 +38,6 @@ class User {
         session_destroy();
     }
 }
-
-
 $user = new User($db);
 
 ?>

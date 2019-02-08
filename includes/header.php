@@ -26,10 +26,22 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
     <header>
         <div class="logo"><a href="/"><?php echo $settings['siteName']; ?></a></div>
         <div class="nav">
-          <a href="/" class="nav_focus">blog</a>
-          <a href="#">archive</a>
-          <a href="#">categories</a>
-          <a href="#">backyard</a>
+        <?php 
+          if(basename($_SERVER['SCRIPT_FILENAME']) == 'page.php') {
+            echo '<a href="/">blog</a>';
+          } else {
+            echo '<a href="/" class="nav_focus">blog</a>';
+          }
+          $pageQuery='SELECT * FROM blink_contents WHERE isPage = 1';
+          $pageQueryResult = mysqli_query($db,$pageQuery);
+          while($pageRows = mysqli_fetch_assoc($pageQueryResult)) {
+            if($_GET['id'] == $pageRows['cid']){
+              echo '<a href="page.php?id='.$pageRows['cid'].'" class="nav_focus">'.$pageRows['title'].'</a>';
+            } else{
+              echo '<a href="page.php?id='.$pageRows['cid'].'">'.$pageRows['title'].'</a>';
+            }
+          }
+        ?>
           <p class="searchButton modal-button" data-target="#modal"><ion-icon name="search"></ion-icon></p>
         </div>
       </header>
