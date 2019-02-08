@@ -29,6 +29,7 @@ if ($_POST['changePassword']=="1") {
     } else {
       $hashedPWD =  password_hash($newPass, PASSWORD_DEFAULT);
       $sql = "UPDATE blink_useres set password = '$hashedPWD' WHERE uid=".$uid;
+      mysqli_query($db, $sql);
       header("Location: ../admin/profile.php?action=passChangeSuccess");
       exit();
     }
@@ -88,7 +89,6 @@ if ($_POST['changeSettings']=="1") {
       ('theme', 0, '$siteTheme'),
       ('postsPerPage', 0, '$postsPerPage'),
       ('codeEmbed', 0, '$codeEmbed');";
-      echo $sql;
     mysqli_query($db, $sql);
     header("Location: ../admin/settings.php?action=updated");
     exit();

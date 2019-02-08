@@ -39,16 +39,7 @@ class User {
     }
 }
 
-// $sql = "SELECT * FROM blink_options";
-// $settings = mysqli_fetch_assoc(mysqli_query($db, $sql));
-// // Posts per page
-// $postsPerPage = $settings['postsPerPage'];
-// $blogName = $settings['blogName'];
-// $blogCover = $settings['blogCover'];
-// // $codeInjection_head = $settings['codeInjection_head'];
-// // $codeInjection_foo = $settings['codeInjection_foo'];
+
 $user = new User($db);
-
-
 
 ?>
