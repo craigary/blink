@@ -26,10 +26,10 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
     <link rel="stylesheet" href="../style/dashboard.css">
   </head>
   <body>
-  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo-white.png" width="112" height="28">
+    <a class="navbar-item" href="<?php echo $settings['siteUrl'].'/admin/' ?>">
+      <img src="../res/blink_logo_white.svg" width="112" height="28">
     </a>
 
     <a role="button" class="navbar-burger burger">
