@@ -2,7 +2,7 @@
 //include config
 require_once('../includes/config.php');
 //if not logged in redirect to login page
-if(!$user->is_logged_in()){header('Location: login.php');}
+if(!$user->is_logged_in()){header('Location: login.php?action=notloginyet');}
 $uid = $_SESSION['uid'];
 $sql = "SELECT * FROM blink_users WHERE uid='$uid'";
 $result = mysqli_query($db, $sql);
@@ -23,6 +23,9 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
     <link rel="stylesheet" href="../style/quill.snow.css">
     <link rel="stylesheet" href="../style/datepicker.min.css">
     <link rel="stylesheet" href="../style/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="../style/animate.min.css">
+    <link rel="stylesheet" href="../style/noty.css">
+    <link rel="stylesheet" href="../style/relax.css">
     <link rel="stylesheet" href="../style/dashboard.css">
   </head>
   <body>

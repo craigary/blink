@@ -114,4 +114,25 @@ window.onload=function (){
 </script>"
 <?php
   include 'footer.php';
+  echo '<script>';
+  $errorMessage = $_GET['action'];
+  switch($errorMessage) {
+  case 'updated':
+      echo "window.onload=showNoti('Please set a title', 'error')";
+      break;
+  case 'passwordEmpty':
+      echo "window.onload=showNoti('Content empty!', 'error')";
+      break;
+  case 'newPassNotSame':
+      echo "window.onload=showNoti('Article posted!', 'success')";
+      break;
+  case 'passDontMatch':
+      echo "window.onload=showNoti('Article modified!', 'success')";
+      break;
+  default:
+      echo "";
+  }
+  echo '</script>';
 ?>
+  </body>
+</html>

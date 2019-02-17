@@ -78,4 +78,25 @@ include 'header.php';
   </div><!-- close tag for container div -->
 <?php
   include 'footerforpost.php';
+  echo '<script>';
+  $errorMessage = $_GET['action'];
+  switch($errorMessage) {
+  case 'emptytitle':
+      echo "window.onload=showNoti('Please set a title', 'error')";
+      break;
+  case 'emptycontent':
+      echo "window.onload=showNoti('Content empty!', 'error')";
+      break;
+  case 'posted':
+      echo "window.onload=showNoti('Article posted!', 'success')";
+      break;
+  case 'modified':
+      echo "window.onload=showNoti('Article modified!', 'success')";
+      break;
+  default:
+      echo "";
+  }
+  echo '</script>';
 ?>
+  </body>
+</html>

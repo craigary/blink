@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <link rel="stylesheet" href="../style/bulmaswatch.min.css">
+    <link rel="stylesheet" href="../style/noty.css">
+    <link rel="stylesheet" href="../style/relax.css">
+    <link rel="stylesheet" href="../style/animate.min.css">
     <link rel="stylesheet" href="../style/dashboard.css">
 </head>
 <body>
@@ -38,5 +41,21 @@
         </div>
     </section>
     <script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
+    <script src="../js/noty.min.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script>
+    <?php
+    $errorMessage = $_GET['login'];
+    if($errorMessage == "empty") {
+        echo "showNoti('Please input username and password.', 'error')";
+    }
+    if($errorMessage == "error") {
+        echo "showNoti('We don\'t have this username.', 'error')";
+    }
+    if($errorMessage == "wrongPass") {
+        echo "showNoti('You password is incorrect.', 'error')";
+    }
+    ?>
+    </script>
 </body>
 </html>

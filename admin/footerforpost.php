@@ -12,6 +12,7 @@
   <script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
   <script src="../js/datepicker.min.js"></script>
   <script src="../js/jquery.timepicker.min.js"></script>
+  <script src="../js/noty.min.js"></script>
   <script src="../js/dashboard.js"></script>
   <script type="text/javascript">
 
@@ -115,5 +116,4 @@ if (isMarkdown == 0) {
   });
 
   </script>
-</body>
-</html>
+

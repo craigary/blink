@@ -62,4 +62,22 @@
   </div><!-- close tag for container div -->
 <?php
   include 'footer.php';
+  echo '<script>';
+  $errorMessage = $_GET['action'];
+  switch($errorMessage) {
+  case 'posted':
+      echo "window.onload=showNoti('Article posted!', 'success')";
+      break;
+  case 'modified':
+      echo "window.onload=showNoti('Article modified!', 'success')";
+      break;
+  case 'deleted':
+        echo "window.onload=showNoti('Article deleted!', 'success')";
+      break;
+  default:
+      echo "";
+  }
+  echo '</script>';
 ?>
+  </body>
+</html>

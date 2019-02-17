@@ -64,12 +64,12 @@ if ($_POST['submit']=="Submit") {
                 $postDescription = substr($postContent, 0, 450);
                 $sql = "UPDATE blink_contents SET title = '$postTitle', description = '$postDescription', text = '$postcont', modified = '$date', categories = $categoryId, authorId = $uid, status = 'published', isPage = $isPage WHERE cid = '$cid';";
                 $result = mysqli_query($db, $sql);
-                header("Location: ../admin/index.php?action=modified");
+                header("Location: ../admin/posts.php?action=modified");
                 exit();
             } else {
                 $sql = "UPDATE blink_contents SET title = '$postTitle', description = '$postDescription', text = '$postcont', modified = '$date', categories = $categoryId, authorId = $uid, status = 'published', isPage = $isPage WHERE cid = '$cid';";
                 $result = mysqli_query($db, $sql);
-                header("Location: ../admin/index.php?action=modified");
+                header("Location: ../admin/posts.php?action=modified");
                 exit();
             }
         }

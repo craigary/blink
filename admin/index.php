@@ -35,4 +35,16 @@ Welcome to the dashboard.<br>Click these links to quick start.
 </div><!-- close tag for container div -->
 <?php
 include 'footer.php';
+echo '<script>';
+$errorMessage = $_GET['action'];
+switch($errorMessage) {
+case 'success':
+    echo "window.onload=showNoti('Login success!', 'success')";
+    break;
+default:
+    echo "";
+}
+echo '</script>';
 ?>
+  </body>
+</html>

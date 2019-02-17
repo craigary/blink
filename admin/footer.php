@@ -6,6 +6,5 @@
   </p>
 </footer>
 <script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/noty.min.js"></script>
 <script src="../js/dashboard.js"></script>
-</body>
-</html>

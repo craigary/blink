@@ -25,7 +25,7 @@
 					// Login the user here
 					  $_SESSION['loggedin'] = true;
 				    $_SESSION['uid'] = $row['uid'];
-				    header("Location: ../admin");
+				    header("Location: ../admin/?action=success");
 					}
 			}
 		}
