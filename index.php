@@ -23,12 +23,14 @@
         echo 'Posted on '.date('jS M Y H:i:s', strtotime($row['modified'])).' by ';
         echo $userResult['screenName'].'. ';
         echo 'Filed by ';
+        echo '<a href="filter.php?method=category&s='.$row['categories'].'">';
         echo $cateResult['name'];
+        echo '</a>';
         echo '</p>';
         echo '<article class="descriptionText">';
         echo $row['description'];
         echo '</article>';
-        echo '<a href="viewpost.php?id='.$row['cid'].'" class="button is-white readmore">Readmore</a>';
+        echo '<a href="viewpost.php?id='.$row['cid'].'" class="button readmore">Readmore</a>';
         echo '<hr>';
         echo '</article>';
     }

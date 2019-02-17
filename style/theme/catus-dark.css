@@ -160,14 +160,15 @@ article.articleText h4{
   font-size: 1rem;
 }
 
-.button.is-white.readmore{
+.button.readmore{
   background-color: transparent;
   color: white;
 }
 
-.button.is-white.readmore:hover{
+.button.readmore:hover{
   background-color: #42B983;
   color: white;
+  border-color: #42B983;  
 }
 
 /* Blog Prev / Next Style Below */

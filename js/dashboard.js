@@ -1,6 +1,6 @@
 function showNoti(message,notiType) {
     new Noty({
-        theme: 'relax',
+        theme: 'nest',
         type: notiType,
         timeout: 2000,
         animation: {

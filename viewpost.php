@@ -32,8 +32,9 @@
     echo '<p class="info">';
     echo 'Posted on '.date('jS M Y H:i:s', strtotime($row['modified'])).' by ';
     echo $userResult['screenName'].'. ';
-    echo 'Filed by ';
+    echo '<a href="filter.php?method=category&s='.$row['categories'].'">';
     echo $cateResult['name'];
+    echo '</a>';
     echo '</p>';
     echo '<article class="articleText">';
     echo $row['text'];

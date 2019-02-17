@@ -40,6 +40,10 @@ header {
   text-align: center;
 }
 
+.logo a:hover {
+  color: #2B3E50;
+}
+
 .nav {
   font-family: "Helvetica Neue", sans-serif;
   font-weight: bold;
@@ -155,9 +159,10 @@ article.articleText h4{
   font-size: 1rem;
 }
 
-.button.is-white.readmore:hover{
+.button.readmore:hover{
   background-color: #42B983;
   color: white;
+  border-color: #42B983;
 }
 
 /* Blog Prev / Next Style Below */

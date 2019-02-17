@@ -76,7 +76,23 @@
       $("#<?php echo $settings['theme']; ?>").prop("checked", true);
     }
 </script>
-<?php include 'footer.php';?>
+<?php
+include 'footer.php';
+
+echo '<script>';
+$errorMessage = $_GET['action'];
+switch($errorMessage) {
+case 'updated':
+    echo "window.onload=showNoti('Settings Updated!', 'success')";
+    break;
+case 'infoEmpty':
+    echo "window.onload=showNoti('Info missing!', 'error')";
+    break;
+default:
+    echo "";
+}
+echo '</script>';
+?>
 
 </body>
 </html>

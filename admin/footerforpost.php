@@ -117,3 +117,8 @@ if (isMarkdown == 0) {
 
   </script>
 
+<script>
+$('.navbar-burger').click(function() {
+  $('.navbar-burger').toggleClass('is-active');
+});
+</script>

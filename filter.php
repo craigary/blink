@@ -62,7 +62,7 @@ echo '<hr>';
         echo '<article class="descriptionText">';
         echo $row['description'];
         echo '</article>';
-        echo '<a href="viewpost.php?id='.$row['cid'].'" class="button is-white readmore">Readmore</a>';
+        echo '<a href="viewpost.php?id='.$row['cid'].'" class="button readmore">Readmore</a>';
         echo '<hr>';
         echo '</article>';
     }

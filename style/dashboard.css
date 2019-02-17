@@ -108,7 +108,7 @@ outline-width: 0;
 footer {
   position: absolute;
   right: 0;
-  bottom: -3rem;
+  bottom:0;
   left: 0;
   text-align: center;
 }

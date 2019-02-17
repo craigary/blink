@@ -26,6 +26,7 @@ $(".modal-close, .modal-background").click(function() {
 });
 
 
+
 </script>
 <!-- user script below -->
 <?php

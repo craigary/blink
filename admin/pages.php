@@ -49,6 +49,7 @@
           echo '</td>';
           echo '</tr>';
         }
+        echo '</table>';
       }
     ?>
   </div><!-- close tag for container div -->

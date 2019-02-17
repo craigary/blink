@@ -25,7 +25,7 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
     <link rel="stylesheet" href="../style/jquery.timepicker.min.css">
     <link rel="stylesheet" href="../style/animate.min.css">
     <link rel="stylesheet" href="../style/noty.css">
-    <link rel="stylesheet" href="../style/relax.css">
+    <link rel="stylesheet" href="../style/nest.css">
     <link rel="stylesheet" href="../style/dashboard.css">
   </head>
   <body>
@@ -74,7 +74,7 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
     <div class="navbar-end">
       <a class="navbar-item" href="../admin/profile.php"><?php echo $userResult['screenName']; ?></a>
       <a class="navbar-item" href="../admin/logout.php">Logout</a>
-      <a class="navbar-item">
+      <a class="navbar-item" href="<?php echo $settings['siteUrl'] ?>">
         Visite Website
       </a>
     </div>

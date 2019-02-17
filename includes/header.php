@@ -12,11 +12,14 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title><?php
-    	if(!isset($row['postTitle'])) {
-    		echo $blogName;
+    <meta name="description" content="<?php echo $settings['siteDescription']; ?>">
+    <meta name="keywords" content="<?php echo $settings['siteKeywords']; ?>">
+		<title>
+      <?php
+    	if(!isset($_GET['id'])) {
+    		echo $settings['siteName'];
     	} else {
-    		echo $blogName.' - '.$row['postTitle'];
+    		echo $settings['siteName'].' - '.$row['title'];
 			}?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style/bulmaswatch.min.css" />
