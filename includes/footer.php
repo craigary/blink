@@ -25,8 +25,6 @@ $(".modal-close, .modal-background").click(function() {
   $(this).parent().removeClass("is-active");
 });
 
-
-
 </script>
 <!-- user script below -->
 <?php

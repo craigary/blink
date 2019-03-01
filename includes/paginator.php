@@ -27,7 +27,6 @@ function displayPagination ($num_rows, $postsPerPage, $page, $currentParameter) 
     $parameterPreviousString = rtrim($parameterPreviousString,'&');
     $parameterNextString = rtrim($parameterNextString,'&');
 
-
     if ($page == 1){
         $prevPage = '<a class="pagination-previous" href="#" style="visibility:hidden;">Previous</a>';
     } else {

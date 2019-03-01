@@ -7,7 +7,7 @@
     <div class="column">
     <!-- article starts here -->
     <?php
-    $result = mysqli_query($db, 'SELECT * FROM blink_contents ORDER BY cid DESC');
+    $result = mysqli_query($db, 'SELECT * FROM blink_contents');
     $num_rows = mysqli_num_rows($result);
     $postsPerPage = $settings['postsPerPage'];
     $sql = 'SELECT * FROM blink_contents ORDER BY cid DESC '.getLimits($postsPerPage, $page);
