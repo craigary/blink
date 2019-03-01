@@ -8,7 +8,7 @@
   } else {
     $sql2 = "SELECT * FROM blink_metas WHERE mid = ".$cid;
     if (mysqli_num_rows(mysqli_query($db, $sql2)) == 0) {
-      echo "这特么的怎么了"; //if there is no category find based on id,
+      echo "there is no category find based on id"; //if there is no category find based on id,
     }else {
         $singleCategoryResult = mysqli_fetch_assoc(mysqli_query($db, $sql2));
     }
