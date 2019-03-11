@@ -75,7 +75,7 @@
     $currentStep = 2;
   }
   echo '<script>window.onload=function(){';
-  
+
   if($currentStep == 1) {
     echo '$("#installerStepTwo").addClass("hideThis"),$("#installerStepThree").addClass("hideThis"),$("#installerStepFour").addClass("hideThis"),$("#installerStepOne").removeClass();';
   }
@@ -103,16 +103,16 @@
         <h1>Blink</h1>
         <ol class="path">
             <li class="current">
-                <span>1</span>欢迎使用
+                <span>1</span>Welcome
             </li>
             <li>
-                <span>2</span>初始化配置
+                <span>2</span>Initialize
             </li>
             <li>
-                <span>3</span>开始安装
+                <span>3</span>Install
             </li>
             <li>
-                <span>4</span>安装成功
+                <span>4</span>Success
             </li>
         </ol>
     </div>

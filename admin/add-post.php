@@ -12,6 +12,7 @@ include 'header.php';
             <div id="article_textarea" class="article_textarea"></div>
             <textarea id="hiddenTextarea" name="hiddenTextarea" style="display:none;"></textarea>
           </div>
+          <p class="is-size-5"><strong>Description</strong></p>
           <div class="new_post">
             <div id="description_textarea" class="description_textarea"></div>
             <textarea id="hiddenDescriptionTextarea" name="hiddenDescriptionTextarea" style="display:none;"></textarea>
