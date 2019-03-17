@@ -10,7 +10,7 @@
 $filterType=$_GET['method'];
 $filterKeywords=$_GET['s'];
 
-if (empty(filterType) || empty(filterKeywords)) {
+if (empty($filterType) || empty($filterKeywords)) {
     header("Location: index.php");
     exit();
 } else {

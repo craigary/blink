@@ -7,7 +7,7 @@
     <section class="hero">
       <div class="hero-body">
         <h1 class="title">
-          Hi, Craig!
+        Hi, <?php echo $userResult['screenName']; ?>!
         </h1>
         <h2 class="subtitle">
           Welcome to the dashboard.<br>Click these links to quick start.

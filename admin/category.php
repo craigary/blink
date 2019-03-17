@@ -69,7 +69,7 @@
           <div class="control">
             <input class="input" type="text" name="metaDescription" placeholder="Category Name" value="<?php echo $singleCategoryResult['description'] ?>">
           </div>
-          <p class="help">* we will use this as the link address.</p>
+          <p class="help"></p>
         </div>
         <div class="field">
         <label class="checkbox">

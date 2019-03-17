@@ -60,7 +60,7 @@ if($_POST['letsgosubmit'] == 1) {
         $hashedPWD =  password_hash($userPass, PASSWORD_DEFAULT);
         $sql = "UPDATE blink_useres set password = '$hashedPWD', `name` = '$username', screenName = '$username', created = NOW() WHERE uid = 1";
         mysqli_query($sql, $db);
-        header("Location: ../installer.php?step4");
+        header("Location: ../installer.php?step=4");
         exit();
     }
 }

@@ -7,10 +7,10 @@
     <div class="column">
     <!-- article starts here -->
     <?php
-    $result = mysqli_query($db, 'SELECT * FROM blink_contents');
+    $result = mysqli_query($db, 'SELECT * FROM blink_contents WHERE isPage=0');
     $num_rows = mysqli_num_rows($result);
     $postsPerPage = $settings['postsPerPage'];
-    $sql = 'SELECT * FROM blink_contents ORDER BY cid DESC '.getLimits($postsPerPage, $page);
+    $sql = 'SELECT * FROM blink_contents WHERE isPage=0 ORDER BY cid DESC '.getLimits($postsPerPage, $page);
     $stmt = mysqli_query($db,$sql);
     while($row = mysqli_fetch_assoc($stmt)){
         $sql2 = 'SELECT screenName FROM blink_users WHERE uid = '.$row['authorId'];

@@ -95,8 +95,6 @@
     $domainName = $_SERVER['HTTP_HOST'].'/';
     echo $protocol.$domainName;
   }
-
-
 ?>
 
     <div class="installerHero">
