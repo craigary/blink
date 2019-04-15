@@ -14,7 +14,7 @@ session_start();
 $dbhost = "127.0.0.1";
 $dbuser = "root";
 $dbpass = "root";
-$dbname = "blog";
+$dbname = "blink";
 $dbport = "8889";
 
 $db = new mysqli($dbhost, $dbuser, $dbpass, $dbname, $dbport);
