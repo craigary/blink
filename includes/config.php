@@ -23,6 +23,7 @@ $db = new mysqli($dbhost, $dbuser, $dbpass, $dbname, $dbport);
 if ($db -> connect_error) {
    die("Connection Failed: ".$db->connect_error);
 }
+
 mysqli_set_charset($db,"utf8mb4");
 
 //set timezone
