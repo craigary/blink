@@ -9,13 +9,11 @@ include 'header.php';
         <div class="column is-three-quarters">
           <div class="new_post">
             <input class="single_input" type="text" name="postTitle" placeholder="Title" value="">
-            <div id="article_textarea" class="article_textarea"></div>
-            <textarea id="hiddenTextarea" name="hiddenTextarea" style="display:none;"></textarea>
+            <textarea id="article_textarea" class="article_textarea" name="article_textarea"></textarea>
           </div>
           <p class="is-size-5"><strong>Description</strong></p>
           <div class="new_post">
-            <div id="description_textarea" class="description_textarea"></div>
-            <textarea id="hiddenDescriptionTextarea" name="hiddenDescriptionTextarea" style="display:none;"></textarea>
+            <textarea id="description_textarea" class="description_textarea" name="description_textarea"></textarea>
           </div>
         </div>
         <div class="column">

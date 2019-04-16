@@ -2,8 +2,8 @@
 include_once 'config.php';
 if ($_POST['submit']=="Submit") {
     $postTitle = mysqli_real_escape_string($db, $_POST['postTitle']);
-    $postDescription = mysqli_real_escape_string($db, $_POST['hiddenDescriptionTextarea']);
-    $postContent = mysqli_real_escape_string($db, $_POST['hiddenTextarea']);
+    $postDescription = mysqli_real_escape_string($db, $_POST['description_textarea']);
+    $postContent = mysqli_real_escape_string($db, $_POST['article_textarea']);
     $categoryId = mysqli_real_escape_string($db, $_POST['categoryId']);
     $timeStamp = mysqli_real_escape_string($db, $_POST['date']);
     $uid = mysqli_real_escape_string($db, $_POST['uid']);
@@ -30,6 +30,7 @@ if ($_POST['submit']=="Submit") {
                 }
             } else {
                 $sql = "INSERT INTO blink_contents (description, created, modified, categories, title, text, authorid, status, isPage) VALUES ('$postDescription', NOW(), NOW(), $categoryId,'$postTitle','$postContent',$uid,'publish', $isPage);";
+                echo $sql;
                 $result = mysqli_query($db, $sql);
                 header("Location: ../admin/posts.php?action=posted");
                 exit();
@@ -39,8 +40,8 @@ if ($_POST['submit']=="Submit") {
 } elseif ($_POST['submit']=="Update"){
     $postid = mysqli_real_escape_string($db, $_POST['postID']);
     $postTitle = mysqli_real_escape_string($db, $_POST['postTitle']);
-    $postDescription = mysqli_real_escape_string($db, $_POST['hiddenDescriptionTextarea']);
-    $postContent = mysqli_real_escape_string($db, $_POST['hiddenTextarea']);
+    $postDescription = mysqli_real_escape_string($db, $_POST['description_textarea']);
+    $postContent = mysqli_real_escape_string($db, $_POST['article_textarea']);
     $categoryId = mysqli_real_escape_string($db, $_POST['categoryId']);
     if(isset($_POST['isPage'])) {
         $isPage = mysqli_real_escape_string($db, $_POST['isPage']);

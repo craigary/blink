@@ -1,5 +1,6 @@
 <?php
-    require('includes/config.php');    
+    require('includes/config.php');
+    require('includes/Parsedown.php');
     $id = $_GET['id'];
     // Create a template
     $sql = "SELECT * FROM blink_contents WHERE cid = ?";
@@ -23,9 +24,10 @@
     </div>
     <div class="column">
 <?php 
+    $Parsedown = new Parsedown();
     $sql2 = 'SELECT screenName FROM blink_users WHERE uid = '.$row['authorId'];
     $userResult = mysqli_fetch_assoc(mysqli_query($db,$sql2));
-    $sql3 = 'SELECT * FROM blink_metas WHERE mid = '.$row['authorId'];
+    $sql3 = 'SELECT * FROM blink_metas WHERE mid = '.$row['categories'];
     $cateResult = mysqli_fetch_assoc(mysqli_query($db,$sql3));
     echo '<article>';
     echo '<h1 class="title"><a href="viewpost.php?id='.$row['cid'].'">'.$row['title'].'</a></h1>';
@@ -37,7 +39,7 @@
     echo '</a>';
     echo '</p>';
     echo '<article class="articleText">';
-    echo $row['text'];
+    echo $Parsedown->text($row['text']); 
     echo '</article>';
     echo '<hr>';
     echo '</article>'; 

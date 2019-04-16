@@ -1,6 +1,7 @@
 <?php
 	require('includes/config.php');
-	require('includes/paginator.php');
+    require('includes/paginator.php');
+    require('includes/Parsedown.php');
     require('includes/header.php'); ?>
     <div class="column sidebar">
     </div>
@@ -10,8 +11,13 @@
     $result = mysqli_query($db, 'SELECT * FROM blink_contents WHERE isPage=0');
     $num_rows = mysqli_num_rows($result);
     $postsPerPage = $settings['postsPerPage'];
-    $sql = 'SELECT * FROM blink_contents WHERE isPage=0 ORDER BY cid DESC '.getLimits($postsPerPage, $page);
+    if($num_rows<=$postsPerPage) {
+        $sql = 'SELECT * FROM blink_contents WHERE isPage=0 ORDER BY cid DESC';
+    } else {
+        $sql = 'SELECT * FROM blink_contents WHERE isPage=0 ORDER BY cid DESC '.getLimits($postsPerPage, $page);  
+    }
     $stmt = mysqli_query($db,$sql);
+    $Parsedown = new Parsedown();
     while($row = mysqli_fetch_assoc($stmt)){
         $sql2 = 'SELECT screenName FROM blink_users WHERE uid = '.$row['authorId'];
         $userResult = mysqli_fetch_assoc(mysqli_query($db,$sql2));
@@ -28,7 +34,7 @@
         echo '</a>';
         echo '</p>';
         echo '<article class="descriptionText">';
-        echo $row['description'];
+        echo $Parsedown->text($row['description']); 
         echo '</article>';
         echo '<a href="viewpost.php?id='.$row['cid'].'" class="button readmore">Readmore</a>';
         echo '<hr>';

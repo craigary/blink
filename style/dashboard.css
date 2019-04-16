@@ -61,7 +61,7 @@ p.subtitle {
   font-weight: bold;
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
 }
 
 .ql-container.ql-snow, .ql-toolbar.ql-snow {
@@ -111,4 +111,19 @@ footer {
   bottom:0;
   left: 0;
   text-align: center;
+}
+
+.navbar {
+  z-index: 1;
+}
+
+.editor-toolbar {
+  border-left: none;
+  border-right: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.CodeMirror {
+  border-left: none;
+  border-right: none;
 }
