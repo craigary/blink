@@ -4,8 +4,7 @@
     <div class="column sidebar">
     </div>
     <!-- article starts here -->
-    <?php
-
+<?php
 
 $filterType=$_GET['method'];
 $filterKeywords=$_GET['s'];
@@ -14,6 +13,7 @@ if (empty($filterType) || empty($filterKeywords)) {
     header("Location: index.php");
     exit();
 } else {
+
     if ($filterType == 'search'){
         $filterQuery = "SELECT * FROM blink_contents WHERE title LIKE '%$filterKeywords%' or description LIKE '%$filterKeywords%' or `text` LIKE '%$filterKeywords%' ORDER BY cid DESC";
     } elseif ($filterType == 'category') {
@@ -22,6 +22,7 @@ if (empty($filterType) || empty($filterKeywords)) {
         header("Location: index.php");
         exit();
     }
+    
 }
 
 echo '<div class="column">';
