@@ -22,7 +22,6 @@ if (empty($filterType) || empty($filterKeywords)) {
         header("Location: index.php");
         exit();
     }
-    
 }
 
 echo '<div class="column">';
@@ -35,14 +34,18 @@ if($filterType == 'search'){
     $currentCategory = mysqli_fetch_assoc(mysqli_query($db,$categoryQueryString));
     echo 'Category: '.$currentCategory['name'];
 }
-
 echo '</h1>';
 echo '<hr>';
 
     $result = mysqli_query($db, $filterQuery);
     $num_rows = mysqli_num_rows($result);
     $postsPerPage = $settings['postsPerPage'];
-    $sql = $filterQuery.getLimits($postsPerPage, $page);
+    if($num_rows <= $postsPerPage) {
+        $sql = $filterQuery;
+    } else{
+        $sql = $filterQuery.getLimits($postsPerPage, $page);
+    }
+
     $stmt = mysqli_query($db,$sql);
 
     while($row = mysqli_fetch_assoc($stmt)){
@@ -67,13 +70,14 @@ echo '<hr>';
         echo '<hr>';
         echo '</article>';
     }
-?> 
-                <nav class="pagination is-rounded is-white" role="navigation" aria-label="pagination">
-                <!-- <a class="pagination-previous">Previous</a>
-                <a class="pagination-next">Next page</a> -->
-                <?php displayPagination ($num_rows, $postsPerPage, $page, $currentParameter) ?>
-                </nav>
-                <hr>
+            if($num_rows >= $postsPerPage) {
+    
+                echo '<nav class="pagination is-rounded is-white" role="navigation" aria-label="pagination">';
+                displayPagination ($num_rows, $postsPerPage, $page, $currentParameter);
+                echo '</nav>';
+                echo '<hr>';
+            } ?>
+                
             </div>
         </div>
     </div>

@@ -40,13 +40,13 @@
         echo '<hr>';
         echo '</article>';
     }
-?> 
-                <nav class="pagination is-rounded is-white" role="navigation" aria-label="pagination">
-                <!-- <a class="pagination-previous">Previous</a>
-                <a class="pagination-next">Next page</a> -->
-                <?php displayPagination ($num_rows, $postsPerPage, $page, $currentParameter) ?>
-                </nav>
-                <hr>
+
+                if($num_rows >= $postsPerPage) {
+    echo '<nav class="pagination is-rounded is-white" role="navigation" aria-label="pagination">';
+    displayPagination ($num_rows, $postsPerPage, $page, $currentParameter);
+    echo '</nav>';
+    echo '<hr>';
+} ?>
             </div>
         </div>
     </div>
