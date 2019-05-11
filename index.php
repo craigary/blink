@@ -21,7 +21,7 @@
     while($row = mysqli_fetch_assoc($stmt)){
         $sql2 = 'SELECT screenName FROM blink_users WHERE uid = '.$row['authorId'];
         $userResult = mysqli_fetch_assoc(mysqli_query($db,$sql2));
-        $sql3 = 'SELECT * FROM blink_metas WHERE mid = '.$row['authorId'];
+        $sql3 = 'SELECT * FROM blink_metas WHERE mid = '.$row['categories'];
         $cateResult = mysqli_fetch_assoc(mysqli_query($db,$sql3));
         echo '<article>';
         echo '<h1 class="title"><a href="viewpost.php?id='.$row['cid'].'">'.$row['title'].'</a></h1>';

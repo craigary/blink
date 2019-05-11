@@ -60,7 +60,7 @@
                     <div class="control">
                       <textarea id="codeArea" class="textarea is-primary" spellcheck="false" name="codeEmbed"  placeholder="Please include <script></script> code."><?php echo $settings['codeEmbed'];?></textarea>
                     </div>
-                    <p class="help">This username is available</p>
+                    <p class="help">You can paste code here like web stats.</p>
                 </div>
                 <div class="field is-grouped">
                     <div class="control">
@@ -73,24 +73,29 @@
 </div>
 <script>
     window.onload = function(){
-      $("#<?php echo $settings['theme']; ?>").prop("checked", true);
+        $("#<?php echo $settings['theme']; ?>").prop("checked", true);
     }
+    
 </script>
 <?php
 include 'footer.php';
 
 echo '<script>';
+
 $errorMessage = $_GET['action'];
 switch($errorMessage) {
 case 'updated':
-    echo "window.onload=showNoti('Settings Updated!', 'success')";
+    echo "window.onload=showNoti('Settings Updated!', 'success');";
+    echo '$("#'.$settings['theme'].'").prop("checked", true);';
     break;
 case 'infoEmpty':
-    echo "window.onload=showNoti('Info missing!', 'error')";
+    echo "window.onload=showNoti('Info missing!', 'error');";
+    echo '$("#'.$settings['theme'].'").prop("checked", true);';
     break;
 default:
     echo "";
 }
+
 echo '</script>';
 ?>
 
