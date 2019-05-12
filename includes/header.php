@@ -8,7 +8,7 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,6 +26,11 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
     <?php echo '<link rel="stylesheet" href="style/theme/'.$settings['theme'].'.css" />' ?>
 </head>
 <body>
+<!-- user script below -->
+<?php
+echo $settings['codeEmbed'];
+?>
+<!-- user script above -->
     <header>
         <div class="logo"><a href="/"><?php echo $settings['siteName']; ?></a></div>
         <div class="nav">
@@ -63,12 +68,7 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
   </div>
   <button class="modal-close is-large" aria-label="close"></button>
 </div>
-
 </section>
-
-
-
-
 <section>
     <div class="container">
         <div class="columns">
