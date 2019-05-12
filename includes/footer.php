@@ -24,8 +24,6 @@ $(".modal-close, .modal-background").click(function() {
   $("html").removeClass("is-clipped");
   $(this).parent().removeClass("is-active");
 });
-
 </script>
-
 </body>
 </html>
