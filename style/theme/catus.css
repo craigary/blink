@@ -129,6 +129,12 @@ article.descriptionText {
   padding-bottom: 1rem;
 }
 
+article.descriptionText p, article.articleText p{
+  margin-top: 1rem;
+  margin-bottom: 1rem; 
+}
+
+
 article.descriptionText img{
   display: block;
   margin-top: 1rem;
@@ -157,6 +163,11 @@ article.articleText h3{
 
 article.articleText h4{
   font-size: 1rem;
+}
+
+.articleText {
+  line-height: 2em;
+  text-align: justify;
 }
 
 .button.readmore:hover{

@@ -14,7 +14,7 @@
         </h2>
         <div class="level is-mobile">
           <div class="level-left">
-            <p class="level-item"><a href="write.php">Write</a></p>
+            <p class="level-item"><a href="add-posts.php">Write</a></p>
             <p class="level-item"><a href="posts.php">Posts</a></p>
             <p class="level-item"><a href="pages.php">Pages</a></p>
             <p class="level-item"><a href="settings.php">Settings</a></p>

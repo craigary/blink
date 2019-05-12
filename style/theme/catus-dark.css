@@ -131,11 +131,11 @@ article.descriptionText img{
   margin-bottom: 1rem;  
   border-radius: 2px;
 }
-/* 
+
 article.descriptionText p, article.articleText p{
   margin-top: 1rem;
   margin-bottom: 1rem; 
-} */
+}
 
 article.articleText h1,
 article.articleText h2,
@@ -159,6 +159,12 @@ article.articleText h3{
 article.articleText h4{
   font-size: 1rem;
 }
+
+.articleText {
+  line-height: 2em;
+  text-align: justify;
+}
+
 
 .button.readmore{
   background-color: transparent;
