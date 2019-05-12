@@ -71,7 +71,6 @@ echo '<hr>';
         echo '</article>';
     }
             if($num_rows >= $postsPerPage) {
-    
                 echo '<nav class="pagination is-rounded is-white" role="navigation" aria-label="pagination">';
                 displayPagination ($num_rows, $postsPerPage, $page, $currentParameter);
                 echo '</nav>';
