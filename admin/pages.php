@@ -1,60 +1,60 @@
 <?php
-  include 'header.php';
-  $sql = "SELECT * FROM blink_contents WHERE isPage = 1 ORDER BY created DESC";
-  $result = mysqli_query($db, $sql);
+include 'header.php';
+$sql = "SELECT * FROM blink_contents WHERE isPage = 1 ORDER BY created DESC";
+$result = mysqli_query($db, $sql);
 ?>
-  <div class="container">
-    <section class="hero">
-      <div class="hero-body">
-        <h1 class="title">
+<div class="container">
+  <section class="hero">
+    <div class="hero-body">
+      <h1 class="title">
         Hi, <?php echo $userResult['screenName']; ?>!
-        </h1>
-        <h2 class="subtitle">
-          Welcome to the dashboard.<br>Click these links to quick start.
-        </h2>
-        <div class="level is-mobile">
-          <div class="level-left">
-            <p class="level-item"><a>All</a></p>
-            <p class="level-item"><a>Published</a></p>
-            <p class="level-item"><a>Drafts</a></p>
-            <p class="level-item"><a>Deleted</a></p>
-          </div>
+      </h1>
+      <h2 class="subtitle">
+        Welcome to the dashboard.<br>Click these links to quick start.
+      </h2>
+      <div class="level is-mobile">
+        <div class="level-left">
+          <p class="level-item"><a href="add-post.php">Write</a></p>
+          <p class="level-item"><a href="posts.php">Posts</a></p>
+          <p class="level-item"><a href="pages.php">Pages</a></p>
+          <p class="level-item"><a href="settings.php">Settings</a></p>
         </div>
       </div>
-    </section>
-    <hr>
-    <?php
-    $resultCheck = mysqli_num_rows($result);
-      if ($resultCheck == 0) {
-        echo '<p class="is-size-3	has-text-centered"><strong>You have no post!</strong></p>';
-      } else {
-        echo'<table class="table is-fullwidth is-striped is-narrow is-hoverable">';
-          echo'<tr>';
-            echo'<th>Title</th>';
-            echo'<th>Author</th>';
-            echo'<th>Date</th>';
-            echo'<th>Modify</th>';
-          echo'</tr>';
-        while ($contentResult = mysqli_fetch_assoc($result)) {
-          echo '<tr>';
-          echo '<td>'.$contentResult['title'].'</td>';
-          echo '<td>'.$userResult['screenName'].'</td>';
-          echo '<td>'.date('jS M Y', strtotime($contentResult['created'])).'</td>';
-          echo '<td>';
-          echo'<a href="edit-post.php?id='?><?php echo $contentResult['cid'];?><?php echo'">Edit</a> /';
-          ?> 
-
-<a href="../includes/delete-inc.php?from=pages&cid=<?php echo $contentResult['cid'];?>" onclick="return confirm('Are you sure?')">Delete</a>
-          <?php
-          echo '</td>';
-          echo '</tr>';
-        }
-        echo '</table>';
-      }
-    ?>
-  </div><!-- close tag for container div -->
+    </div>
+  </section>
+  <hr>
+  <?php
+  $resultCheck = mysqli_num_rows($result);
+  if ($resultCheck == 0) {
+    echo '<p class="is-size-3	has-text-centered"><strong>You have no post!</strong></p>';
+  } else {
+    echo '<table class="table is-fullwidth is-striped is-narrow is-hoverable">';
+    echo '<tr>';
+    echo '<th>Title</th>';
+    echo '<th>Author</th>';
+    echo '<th>Date</th>';
+    echo '<th>Modify</th>';
+    echo '</tr>';
+    while ($contentResult = mysqli_fetch_assoc($result)) {
+      echo '<tr>';
+      echo '<td>' . $contentResult['title'] . '</td>';
+      echo '<td>' . $userResult['screenName'] . '</td>';
+      echo '<td>' . date('jS M Y', strtotime($contentResult['created'])) . '</td>';
+      echo '<td>';
+      echo '<a href="edit-post.php?id=' ?><?php echo $contentResult['cid']; ?><?php echo '">Edit</a> /';
+                                                                                    ?>
+      <a href="../includes/delete-inc.php?from=pages&cid=<?php echo $contentResult['cid']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+      <?php
+      echo '</td>';
+      echo '</tr>';
+    }
+    echo '</table>';
+  }
+  ?>
+</div><!-- close tag for container div -->
 <?php
-  include 'footer.php';
+include 'footer.php';
 ?>
-  </body>
+</body>
+
 </html>

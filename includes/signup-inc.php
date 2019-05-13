@@ -43,7 +43,6 @@ if (isset($_POST['submit'])) {
 			}
 		}
 	}
-
 } else {
 	header("Location: ../install/index.php");
 	exit();

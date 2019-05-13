@@ -33,4 +33,3 @@ if (isset($_GET['from']) && isset($_GET['cid'])) {
     header("Location: ../admin/index.php");
     exit();
 }
-?>

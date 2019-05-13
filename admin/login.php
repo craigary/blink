@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="../style/animate.min.css">
     <link rel="stylesheet" href="../style/dashboard.css">
 </head>
+
 <body>
     <section class="hero is-success is-fullheight">
         <div class="hero-body">
@@ -19,7 +21,7 @@
                     <h3 class="title has-text-grey">Login</h3>
                     <p class="subtitle has-text-grey">Please login to proceed.</p>
                     <div class="box">
-                      <form action="../includes/login-inc.php" method="post">
+                        <form action="../includes/login-inc.php" method="post">
                             <div class="field">
                                 <div class="control">
                                     <input class="input" type="text" name="username" value="" placeholder="Your Name" autofocus="">
@@ -44,18 +46,19 @@
     <script src="../js/noty.min.js"></script>
     <script src="../js/dashboard.js"></script>
     <script>
-    <?php
-    $errorMessage = $_GET['login'];
-    if($errorMessage == "empty") {
-        echo "showNoti('Please input username and password.', 'error')";
-    }
-    if($errorMessage == "error") {
-        echo "showNoti('We don\'t have this username.', 'error')";
-    }
-    if($errorMessage == "wrongPass") {
-        echo "showNoti('You password is incorrect.', 'error')";
-    }
-    ?>
+        <?php
+        $errorMessage = $_GET['login'];
+        if ($errorMessage == "empty") {
+            echo "showNoti('Please input username and password.', 'error')";
+        }
+        if ($errorMessage == "error") {
+            echo "showNoti('We don\'t have this username.', 'error')";
+        }
+        if ($errorMessage == "wrongPass") {
+            echo "showNoti('You password is incorrect.', 'error')";
+        }
+        ?>
     </script>
 </body>
+
 </html>

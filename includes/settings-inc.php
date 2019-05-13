@@ -2,15 +2,15 @@
 include_once 'config.php';
 $uid = mysqli_real_escape_string($db, $_POST['uid']);
 
-if ($_POST['preferences']=="1") {
-    $markdown = mysqli_real_escape_string($db, $_POST['markdown']);
-    $sql = "UPDATE blink_options SET value = $markdown WHERE name = 'markdown' AND user = $uid;";
-    mysqli_query($db, $sql);
-    header("Location: ../admin/profile.php?action=updated");
-    exit();
+if ($_POST['preferences'] == "1") {
+  $markdown = mysqli_real_escape_string($db, $_POST['markdown']);
+  $sql = "UPDATE blink_options SET value = $markdown WHERE name = 'markdown' AND user = $uid;";
+  mysqli_query($db, $sql);
+  header("Location: ../admin/profile.php?action=updated");
+  exit();
 }
 
-if ($_POST['changePassword']=="1") {
+if ($_POST['changePassword'] == "1") {
   $currentPass = mysqli_real_escape_string($db, $_POST['currentPass']);
   $newPass = mysqli_real_escape_string($db, $_POST['newPass']);
   $doubleCheck = mysqli_real_escape_string($db, $_POST['doubleCheck']);
@@ -19,8 +19,8 @@ if ($_POST['changePassword']=="1") {
     header("Location: ../admin/profile.php?action=passwordEmpty");
     exit();
   } elseif ($newPass !== $doubleCheck) {
-      header("Location: ../admin/profile.php?action=newPassNotSame");
-      exit();
+    header("Location: ../admin/profile.php?action=newPassNotSame");
+    exit();
   } else {
     $hashedPWD =  password_hash($currentPass, PASSWORD_DEFAULT);
     if ($userResult['password'] !== $hashedPWD) {
@@ -28,7 +28,7 @@ if ($_POST['changePassword']=="1") {
       exit();
     } else {
       $hashedPWD =  password_hash($newPass, PASSWORD_DEFAULT);
-      $sql = "UPDATE blink_useres set password = '$hashedPWD' WHERE uid=".$uid;
+      $sql = "UPDATE blink_useres set password = '$hashedPWD' WHERE uid=" . $uid;
       mysqli_query($db, $sql);
       header("Location: ../admin/profile.php?action=passChangeSuccess");
       exit();
@@ -36,20 +36,21 @@ if ($_POST['changePassword']=="1") {
   }
 }
 
-if ($_POST['info']=="1") {
+if ($_POST['info'] == "1") {
   // $sql = "UPDATE blink_useres set password = '$hashedPWD' WHERE uid=".$uid;
   $screenName = mysqli_real_escape_string($db, $_POST['screenName']);
   $website = mysqli_real_escape_string($db, $_POST['website']);
   $mail = mysqli_real_escape_string($db, $_POST['mail']);
-  function is_url($v){
-  	$pattern="#(http|https)://(.*\.)?.*\..*#i";
-  	if(preg_match($pattern,$v)){
-  		return true;
-  	}else{
-  		return false;
-  	}
-}
-if (empty($screenName) || empty($mail) || empty($website)) {
+  function is_url($v)
+  {
+    $pattern = "#(http|https)://(.*\.)?.*\..*#i";
+    if (preg_match($pattern, $v)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if (empty($screenName) || empty($mail) || empty($website)) {
     header("Location: ../admin/profile.php?action=infoEmpty");
     exit();
   } elseif (is_url($website) == false) {
@@ -60,7 +61,7 @@ if (empty($screenName) || empty($mail) || empty($website)) {
       header("Location: ../admin/profile.php?action=wrongemail");
       exit();
     } else {
-      $sql = "UPDATE blink_users set screenName = '$screenName', mail = '$mail', website = '$website' WHERE uid=".$uid;
+      $sql = "UPDATE blink_users set screenName = '$screenName', mail = '$mail', website = '$website' WHERE uid=" . $uid;
       mysqli_query($db, $sql);
       header("Location: ../admin/profile.php?action=infoUpdated");
       exit();
@@ -68,7 +69,7 @@ if (empty($screenName) || empty($mail) || empty($website)) {
   }
 }
 
-if ($_POST['changeSettings']=="1") {
+if ($_POST['changeSettings'] == "1") {
   $siteName = mysqli_real_escape_string($db, $_POST['siteName']);
   $siteUrl = mysqli_real_escape_string($db, $_POST['siteUrl']);
   $siteDescription = mysqli_real_escape_string($db, $_POST['siteDescription']);

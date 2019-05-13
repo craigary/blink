@@ -1,5 +1,4 @@
-
-<footer >
+<footer>
   <p>
     <strong>Blink</strong> by <a href="https://craigary.net">Craig Hart</a>. The source code is licensed
     <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
@@ -11,8 +10,8 @@
 <script src="../js/dashboard.js"></script>
 
 <script>
-$('.navbar-burger').click(function() {
-  $('.navbar-burger').toggleClass('is-active');
-  $('.navbar-menu').toggleClass('is-active');
-});
+  $('.navbar-burger').click(function() {
+    $('.navbar-burger').toggleClass('is-active');
+    $('.navbar-menu').toggleClass('is-active');
+  });
 </script>

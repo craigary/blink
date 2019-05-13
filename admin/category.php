@@ -1,50 +1,50 @@
 <?php
-  include 'header.php';
-  $sql = "SELECT * FROM blink_metas WHERE type = 'category';";
-  $result = mysqli_query($db, $sql);
-  $cid = $_GET['cid'];
-  if($cid == ''){
-    echo "<script>window.onload=function(){document.getElementById('categorySubmitButton').value = 'Add New'}</script>";
+include 'header.php';
+$sql = "SELECT * FROM blink_metas WHERE type = 'category';";
+$result = mysqli_query($db, $sql);
+$cid = $_GET['cid'];
+if ($cid == '') {
+  echo "<script>window.onload=function(){document.getElementById('categorySubmitButton').value = 'Add New'}</script>";
+} else {
+  $sql2 = "SELECT * FROM blink_metas WHERE mid = " . $cid;
+  if (mysqli_num_rows(mysqli_query($db, $sql2)) == 0) {
+    echo "there is no category find based on id"; //if there is no category find based on id,
   } else {
-    $sql2 = "SELECT * FROM blink_metas WHERE mid = ".$cid;
-    if (mysqli_num_rows(mysqli_query($db, $sql2)) == 0) {
-      echo "there is no category find based on id"; //if there is no category find based on id,
-    }else {
-        $singleCategoryResult = mysqli_fetch_assoc(mysqli_query($db, $sql2));
-    }
-    echo "<script>window.onload=function(){document.getElementById('categorySubmitButton').value = 'Update';document.getElementById('metaId').value = '".$singleCategoryResult['mid']."'}</script>";
+    $singleCategoryResult = mysqli_fetch_assoc(mysqli_query($db, $sql2));
   }
- ?>
+  echo "<script>window.onload=function(){document.getElementById('categorySubmitButton').value = 'Update';document.getElementById('metaId').value = '" . $singleCategoryResult['mid'] . "'}</script>";
+}
+?>
 <div class="container">
   <div class="empty_placeholder">
   </div>
   <div class="columns">
     <div class="column">
       <table class="table is-fullwidth is-transparent is-hoverable">
-          <tr>
-            <th>Name</th>
-            <th>Abbr</th>
-            <th>Posts</th>
-            <th></th>
-          </tr>
-          <?php
-          if (mysqli_num_rows($result) == 0) {
-            echo '这特么的怎么了'; // if there's no categories
-          } else {
-            while ($categoryResults = mysqli_fetch_assoc($result)) {
-              echo '<tr>';
-                echo '<td>'.$categoryResults['name'].'</td>';
-                echo '<td>'.$categoryResults['slug'].'</td>';
-                $sql = "SELECT COUNT(*) FROM blink_contents WHERE categories = ".$categoryResults['mid'];
-                $postNumPerCategory = mysqli_fetch_assoc(mysqli_query($db, $sql));
-                echo '<td>'.$postNumPerCategory['COUNT(*)'].'</td>';
-                echo '<td>';
-                echo '<a href="category.php?cid='.$categoryResults['mid'].'">Modify</a> / <a href="../includes/delete-inc.php?from=categories&defaultCategoryId='.$settings['defaultCategory'].'&cid='. $categoryResults['mid'] .'" onclick="return confirm(\'Are you sure?\')">Delete</a>';
-                echo '</td>';
-              echo '</tr>';
-            }
+        <tr>
+          <th>Name</th>
+          <th>Abbr</th>
+          <th>Posts</th>
+          <th></th>
+        </tr>
+        <?php
+        if (mysqli_num_rows($result) == 0) {
+          echo '这特么的怎么了'; // if there's no categories
+        } else {
+          while ($categoryResults = mysqli_fetch_assoc($result)) {
+            echo '<tr>';
+            echo '<td>' . $categoryResults['name'] . '</td>';
+            echo '<td>' . $categoryResults['slug'] . '</td>';
+            $sql = "SELECT COUNT(*) FROM blink_contents WHERE categories = " . $categoryResults['mid'];
+            $postNumPerCategory = mysqli_fetch_assoc(mysqli_query($db, $sql));
+            echo '<td>' . $postNumPerCategory['COUNT(*)'] . '</td>';
+            echo '<td>';
+            echo '<a href="category.php?cid=' . $categoryResults['mid'] . '">Modify</a> / <a href="../includes/delete-inc.php?from=categories&defaultCategoryId=' . $settings['defaultCategory'] . '&cid=' . $categoryResults['mid'] . '" onclick="return confirm(\'Are you sure?\')">Delete</a>';
+            echo '</td>';
+            echo '</tr>';
           }
-          ?>
+        }
+        ?>
       </table>
     </div>
     <div class="column">
@@ -72,9 +72,9 @@
           <p class="help"></p>
         </div>
         <div class="field">
-        <label class="checkbox">
-          <input type="checkbox" id="isDefaultCategory" name ="isDefault"> Default Category
-        </label>
+          <label class="checkbox">
+            <input type="checkbox" id="isDefaultCategory" name="isDefault"> Default Category
+          </label>
         </div>
         <input type="submit" name="submit" id="categorySubmitButton" class="button is-primary" value="Add New">
       </form>
@@ -84,48 +84,48 @@
 <script>
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
     for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
+      sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
     }
   };
 
   if (getUrlParameter('cid') == <?php echo $settings['defaultCategory'] ?>) {
-    window.onload = function (){
+    window.onload = function() {
       $('#isDefaultCategory').prop('checked', true);
     }
   }
-
 </script>
 <?php
-  include 'footer.php';
-  echo '<script>';
-  $errorMessage = $_GET['action'];
-  switch($errorMessage) {
+include 'footer.php';
+echo '<script>';
+$errorMessage = $_GET['action'];
+switch ($errorMessage) {
   case 'emptyName':
-      echo "window.onload=showNoti('Please set a name', 'error')";
-      break;
+    echo "window.onload=showNoti('Please set a name', 'error')";
+    break;
   case 'newCategorySuccess':
-      echo "window.onload=showNoti('New category added!', 'success')";
-      break;
+    echo "window.onload=showNoti('New category added!', 'success')";
+    break;
   case 'updateCategorySuccess':
-      echo "window.onload=showNoti('Category successfully modified!', 'success')";
-      break;
+    echo "window.onload=showNoti('Category successfully modified!', 'success')";
+    break;
   case 'unableDeleteDefaultCategory':
-      echo "window.onload=showNoti('You can\t delete default category!', 'error')";
-      break;
+    echo "window.onload=showNoti('You can\t delete default category!', 'error')";
+    break;
   case 'deleted':
-      echo "window.onload=showNoti('Category successfully deleted!', 'success')";
-      break;
+    echo "window.onload=showNoti('Category successfully deleted!', 'success')";
+    break;
   default:
-      echo "";
-  }
-  echo '</script>';
+    echo "";
+}
+echo '</script>';
 ?>
-  </body>
+</body>
+
 </html>
