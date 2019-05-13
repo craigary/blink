@@ -64,7 +64,7 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
       <div class="modal-content">
         <div class=search>
           <div class="searchbarwrapper">
-            <form autocomplete="off" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            <form autocomplete="off" autocapitalize="off" spellcheck="false">
               <input type="search" id="searchinput" placeholder="type keyword(s) here" autofocus>
             </form>
           </div>
