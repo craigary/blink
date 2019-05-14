@@ -28,7 +28,7 @@ echo '<script>';
 $errorMessage = $_GET['action'];
 switch ($errorMessage) {
   case 'success':
-    echo "window.onload=showNoti('Login success!', 'success')";
+    echo "window.onload=showNoti('Login success!', 'success');";
     break;
   default:
     echo "";

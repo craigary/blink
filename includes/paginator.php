@@ -14,7 +14,7 @@ if (isset($_GET['page'])) {
 
 function getLimits($postsPerPage, $page)
 {
-  $pageStartNum = ($page - 1) * $postsPerPage + 1;
+  $pageStartNum = ($page - 1) * $postsPerPage;
   $limitString = ' LIMIT ' . $pageStartNum . ', ' . $postsPerPage;
   return $limitString;
 }

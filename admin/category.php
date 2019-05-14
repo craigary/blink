@@ -107,19 +107,19 @@ echo '<script>';
 $errorMessage = $_GET['action'];
 switch ($errorMessage) {
   case 'emptyName':
-    echo "window.onload=showNoti('Please set a name', 'error')";
+    echo "window.onload=showNoti('Please set a name', 'error');";
     break;
   case 'newCategorySuccess':
-    echo "window.onload=showNoti('New category added!', 'success')";
+    echo "window.onload=showNoti('New category added!', 'success');";
     break;
   case 'updateCategorySuccess':
-    echo "window.onload=showNoti('Category successfully modified!', 'success')";
+    echo "window.onload=showNoti('Category successfully modified!', 'success');";
     break;
   case 'unableDeleteDefaultCategory':
-    echo "window.onload=showNoti('You can\t delete default category!', 'error')";
+    echo "window.onload=showNoti('You can\t delete default category!', 'error');";
     break;
   case 'deleted':
-    echo "window.onload=showNoti('Category successfully deleted!', 'success')";
+    echo "window.onload=showNoti('Category successfully deleted!', 'success');";
     break;
   default:
     echo "";

@@ -118,28 +118,28 @@ echo '<script>';
 $errorMessage = $_GET['action'];
 switch ($errorMessage) {
   case 'updated':
-    echo "window.onload=showNoti('Profile Updated', 'success')";
+    echo "window.onload=showNoti('Profile Updated', 'success');";
     break;
   case 'passwordEmpty':
-    echo "window.onload=showNoti('Content empty!', 'error')";
+    echo "window.onload=showNoti('Content empty!', 'error');";
     break;
   case 'newPassNotSame':
-    echo "window.onload=showNoti('Password not same!', 'error')";
+    echo "window.onload=showNoti('Password not same!', 'error');";
     break;
   case 'passDontMatch':
-    echo "window.onload=showNoti('Password not much!', 'error')";
+    echo "window.onload=showNoti('Password not much!', 'error');";
     break;
   case 'infoEmpty':
-    echo "window.onload=showNoti('Info missing!', 'error')";
+    echo "window.onload=showNoti('Info missing!', 'error');";
     break;
   case 'wrongurl':
-    echo "window.onload=showNoti('Website is not legit!', 'error')";
+    echo "window.onload=showNoti('Website is not legit!', 'error');";
     break;
   case 'wrongemail':
-    echo "window.onload=showNoti('Wrong email!', 'error')";
+    echo "window.onload=showNoti('Wrong email!', 'error');";
     break;
   case 'infoUpdated':
-    echo "window.onload=showNoti('Profile updated!', 'success')";
+    echo "window.onload=showNoti('Profile updated!', 'success');";
     break;
   default:
     echo "";

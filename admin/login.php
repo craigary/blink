@@ -48,13 +48,13 @@
     <?php
     $errorMessage = $_GET['login'];
     if ($errorMessage == "empty") {
-      echo "showNoti('Please input username and password.', 'error')";
+      echo "showNoti('Please input username and password.', 'error');";
     }
     if ($errorMessage == "error") {
-      echo "showNoti('We don\'t have this username.', 'error')";
+      echo "showNoti('We don\'t have this username.', 'error');";
     }
     if ($errorMessage == "wrongPass") {
-      echo "showNoti('You password is incorrect.', 'error')";
+      echo "showNoti('You password is incorrect.', 'error');";
     }
     ?>
   </script>

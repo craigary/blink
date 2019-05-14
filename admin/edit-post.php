@@ -95,16 +95,16 @@ echo '<script>';
 $errorMessage = $_GET['action'];
 switch ($errorMessage) {
   case 'emptytitle':
-    echo "window.onload=showNoti('Please set a title', 'error')";
+    echo "window.onload=showNoti('Please set a title', 'error');";
     break;
   case 'emptycontent':
-    echo "window.onload=showNoti('Content empty!', 'error')";
+    echo "window.onload=showNoti('Content empty!', 'error');";
     break;
   case 'posted':
-    echo "window.onload=showNoti('Article posted!', 'success')";
+    echo "window.onload=showNoti('Article posted!', 'success');";
     break;
   case 'modified':
-    echo "window.onload=showNoti('Article modified!', 'success')";
+    echo "window.onload=showNoti('Article modified!', 'success');";
     break;
   default:
     echo "";
