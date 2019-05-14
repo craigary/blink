@@ -5,6 +5,25 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
 <script>
+
+$("img").each(function() {
+	$(this).attr("data-src",$(this).attr("src"));
+	$(this).removeAttr("src");
+	$(this).attr("class","lazyload")
+});
+
+if ('loading' in HTMLImageElement.prototype) {
+	const images = document.querySelectorAll("img.lazyload");
+	images.forEach(img => {
+		img.src = img.dataset.src;
+	});
+} else {
+	let script = document.createElement("script");
+	script.src = "/js/lazysizes.min.js";;
+	document.body.appendChild(script)
+}
+
+  //search interface
   $(document).on('keypress', function(e) {
     if (e.which == 13) {
       event.preventDefault();

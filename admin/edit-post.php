@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-$id = $_GET['id'];
+$id = mysqli_real_escape_string($db, $_GET['id']);
 if ($id == '') {
   header('Location: ./');
   exit;

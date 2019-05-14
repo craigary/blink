@@ -1,6 +1,7 @@
 <?php
 include_once 'config.php';
-if ($_POST['submit'] == "Submit") {
+$querytype = mysqli_real_escape_string($db, $_POST['submit']);
+if ($querytype == "Submit") {
   $postTitle = mysqli_real_escape_string($db, $_POST['postTitle']);
   $postDescription = mysqli_real_escape_string($db, $_POST['description_textarea']);
   $postContent = mysqli_real_escape_string($db, $_POST['article_textarea']);
@@ -37,7 +38,7 @@ if ($_POST['submit'] == "Submit") {
       }
     }
   }
-} elseif ($_POST['submit'] == "Update") {
+} elseif ($querytype == "Update") {
   $postid = mysqli_real_escape_string($db, $_POST['postID']);
   $postTitle = mysqli_real_escape_string($db, $_POST['postTitle']);
   $postDescription = mysqli_real_escape_string($db, $_POST['description_textarea']);
