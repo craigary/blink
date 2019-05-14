@@ -45,7 +45,7 @@
               Dark
             </label>
           </div>
-          <p class="help">This username is available</p>
+          <p class="help">Pick a theme.</p>
         </div>
         <div class="field">
           <label class="label">Posts Per Page</label>
@@ -92,9 +92,9 @@ switch ($errorMessage) {
   default:
     echo "";
 }
-echo '</script>';
 ?>
-
+document.title = "Settings";
+</script>
 </body>
 
 </html>

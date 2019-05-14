@@ -14,7 +14,7 @@ $result = mysqli_query($db, $sql);
       </h2>
       <div class="level is-mobile">
         <div class="level-left">
-          <p class="level-item"><a href="add-posts.php">Write</a></p>
+          <p class="level-item"><a href="add-post.php">Write</a></p>
           <p class="level-item"><a href="posts.php">Posts</a></p>
           <p class="level-item"><a href="pages.php">Pages</a></p>
           <p class="level-item"><a href="settings.php">Settings</a></p>
@@ -78,8 +78,10 @@ switch ($errorMessage) {
   default:
     echo "";
 }
-echo '</script>';
 ?>
+document.title = "Posts";
+</script>
+
 </body>
 
 </html>

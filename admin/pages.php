@@ -41,8 +41,7 @@ $result = mysqli_query($db, $sql);
       echo '<td>' . $userResult['screenName'] . '</td>';
       echo '<td>' . date('jS M Y', strtotime($contentResult['created'])) . '</td>';
       echo '<td>';
-      echo '<a href="edit-post.php?id=' ?><?php echo $contentResult['cid']; ?><?php echo '">Edit</a> /';
-                                                                                    ?>
+      echo '<a href="edit-post.php?id=' ?><?php echo $contentResult['cid']; ?><?php echo '">Edit</a> /';?>
       <a href="../includes/delete-inc.php?from=pages&cid=<?php echo $contentResult['cid']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
       <?php
       echo '</td>';
@@ -55,6 +54,8 @@ $result = mysqli_query($db, $sql);
 <?php
 include 'footer.php';
 ?>
+
+
 </body>
 
 </html>

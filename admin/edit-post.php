@@ -111,6 +111,11 @@ switch ($errorMessage) {
 }
 echo '</script>';
 ?>
+
+<script>
+  document.title = "Edit Post";
+</script>
+
 </body>
 
 </html>

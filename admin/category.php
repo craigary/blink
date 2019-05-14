@@ -124,8 +124,10 @@ switch ($errorMessage) {
   default:
     echo "";
 }
-echo '</script>';
 ?>
+  document.title = "Category";
+</script>
+
 </body>
 
 </html>

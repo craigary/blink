@@ -33,8 +33,11 @@ switch ($errorMessage) {
   default:
     echo "";
 }
-echo '</script>';
 ?>
+
+document.title = "Dashboard";
+</script>
+
 </body>
 
 </html>

@@ -144,8 +144,11 @@ switch ($errorMessage) {
   default:
     echo "";
 }
-echo '</script>';
 ?>
+
+document.title = "Profile";
+</script>
+
 </body>
 
 </html>

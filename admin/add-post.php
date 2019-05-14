@@ -97,6 +97,10 @@ switch ($errorMessage) {
 }
 echo '</script>';
 ?>
+<script>
+  document.title = "Add Post";
+</script>
+
 </body>
 
 </html>
