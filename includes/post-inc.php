@@ -23,19 +23,22 @@ if ($querytype == "Submit") {
       header("Location: ../admin/add-post.php?action=emptycontent");
       exit();
     } else {
+
+
+
+
       if (empty($postDescription)) {
-        if (count($postDescription) < 450) {
-          $postDescription = $postContent;
-        } else {
-          $postDescription = substr($postContent, 450);
-        }
-      } else {
+        $postDescription = substr($postContent, 0, 450);
+      }
+      
         $sql = "INSERT INTO blink_contents (description, created, modified, categories, title, text, authorid, status, isPage) VALUES ('$postDescription', NOW(), NOW(), $categoryId,'$postTitle','$postContent',$uid,'publish', $isPage);";
-        echo $sql;
         $result = mysqli_query($db, $sql);
         header("Location: ../admin/posts.php?action=posted");
         exit();
-      }
+
+
+
+
     }
   }
 } elseif ($querytype == "Update") {
@@ -64,16 +67,11 @@ if ($querytype == "Submit") {
     } else {
       if (empty($postDescription)) {
         $postDescription = substr($postContent, 0, 450);
-        $sql = "UPDATE blink_contents SET title = '$postTitle', description = '$postDescription', text = '$postContent', modified = '$date', categories = $categoryId, authorId = $uid, status = 'published', isPage = $isPage WHERE cid = '$cid';";
-        $result = mysqli_query($db, $sql);
-        header("Location: ../admin/posts.php?action=modified");
-        exit();
-      } else {
-        $sql = "UPDATE blink_contents SET title = '$postTitle', description = '$postDescription', text = '$postContent', modified = '$date', categories = $categoryId, authorId = $uid, status = 'published', isPage = $isPage WHERE cid = '$cid';";
-        $result = mysqli_query($db, $sql);
-        header("Location: ../admin/posts.php?action=modified");
-        exit();
       }
+        $sql = "UPDATE blink_contents SET title = '$postTitle', description = '$postDescription', text = '$postContent', modified = '$date', categories = $categoryId, authorId = $uid, status = 'published', isPage = $isPage WHERE cid = '$cid';";
+        $result = mysqli_query($db, $sql);
+        header("Location: ../admin/posts.php?action=modified");
+        exit();
     }
   }
 } else {

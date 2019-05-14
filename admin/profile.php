@@ -48,18 +48,18 @@ include 'header.php';
         <form action="../includes/settings-inc.php" method="post" name="preferences">
           <input type="text" name="uid" value="<?php echo $uid; ?>" style="display:none;">
           <div class="field">
-            <label class="label">Use Markdown Editor</label>
+            <label class="label">Show Markdown Toolbar</label>
             <div class="control">
               <label class="radio">
-                <input type="radio" name="markdown" id="markdownYes" value="1">
+                <input type="radio" name="markdown" id="md1" value="1">
                 Yes
               </label>
               <label class="radio">
-                <input type="radio" name="markdown" id="markdownNo" value="0">
+                <input type="radio" name="markdown" id="md0" value="0">
                 No
               </label>
             </div>
-            <p class="help">What is Markdown</p>
+            <p class="help">What is <a href="https://simplemde.com/markdown-guide" target="_blank">Markdown</a></p>
           </div>
           <div class="field is-grouped">
             <div class="control">
@@ -103,11 +103,9 @@ include 'header.php';
   window.onload = function() {
     <?php
     if ($settings['markdown'] == 1) {
-      echo "document.getElementById('markdownYes').checked=true;";
-      echo "document.getElementById('markdownNo').checked=false;";
+      echo "$('#md1').prop('checked', true);";
     } else {
-      echo "document.getElementById('markdownNo').checked=true;";
-      echo "document.getElementById('markdownYes').checked=false;";
+      echo "$('#md0').prop('checked', true);";
     }
     ?>
   }
@@ -143,6 +141,11 @@ switch ($errorMessage) {
     break;
   default:
     echo "";
+}
+if ($settings['markdown'] == 1) {
+  echo "$('#md1').prop('checked', true);";
+} else {
+  echo "$('#md0').prop('checked', true);";
 }
 ?>
 
