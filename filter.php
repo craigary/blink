@@ -1,5 +1,6 @@
 <?php require('includes/config.php');
 require('includes/paginator.php');
+require('includes/Parsedown.php');
 require('includes/header.php'); ?>
 <div class="column sidebar">
 </div>
@@ -44,6 +45,7 @@ if ($num_rows <= $postsPerPage) {
   $sql = $filterQuery . getLimits($postsPerPage, $page);
 }
 $stmt = mysqli_query($db, $sql);
+$Parsedown = new Parsedown();
 while ($row = mysqli_fetch_assoc($stmt)) {
   $sql2 = 'SELECT screenName FROM blink_users WHERE uid = ' . $row['authorId'];
   $userResult = mysqli_fetch_assoc(mysqli_query($db, $sql2));
@@ -60,7 +62,7 @@ while ($row = mysqli_fetch_assoc($stmt)) {
   echo '</a>';
   echo '</p>';
   echo '<article class="descriptionText">';
-  echo $row['description'];
+  echo $Parsedown->text($row['description']);
   echo '</article>';
   echo '<a href="viewpost.php?id=' . $row['cid'] . '" class="button readmore">Readmore</a>';
   echo '<hr>';
