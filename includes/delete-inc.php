@@ -6,7 +6,7 @@ if (isset($_GET['from']) && isset($_GET['cid'])) {
     if ($_GET['from']=="categories") {
         $defaultCategoryId = $_GET['defaultCategoryId'];
         if($deleteId == $defaultCategoryId) {
-            header("Location: ../admin/categories.php?action=unableDeleteDefaultCategory");
+            header("Location: ../admin/category.php?action=unableDeleteDefaultCategory");
             exit();
         } else {
             $sql = "UPDATE blink_contents SET categories = ".$defaultCategoryId." WHERE categories =".$deleteId;

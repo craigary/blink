@@ -20,6 +20,7 @@ a:link, a:focus, a:active {
 .container {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* Blog Header Style Below */
