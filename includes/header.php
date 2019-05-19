@@ -28,6 +28,27 @@ while ($settingItem = mysqli_fetch_assoc($settingsResult)) {
 </head>
 
 <body>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script>
+    window.onload = function() {
+      $("img").each(function() {
+        $(this).attr("data-src", $(this).attr("src"));
+        $(this).removeAttr("src");
+        $(this).attr("class", "lazyload");
+      });
+      if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll("img.lazyload");
+        images.forEach(img => {
+          img.src = img.dataset.src;
+          img.setAttribute("loading", "lazy");
+        });
+      } else {
+        let script = document.createElement("script");
+        script.src = "/js/lazysizes.min.js";;
+        document.body.appendChild(script)
+      }
+    }
+  </script>
   <!-- user script below -->
   <?php
   echo $settings['codeEmbed'];
