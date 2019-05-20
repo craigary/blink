@@ -6,20 +6,12 @@
   </p>
 </footer>
 <script src="../js/jquery-3.3.1.min.js"></script>
-<script src="../js/moment.min.js"></script>
 <script src="../js/simplemde.min.js"></script>
 <script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
-<script src="../js/datepicker.min.js"></script>
-<script src="../js/jquery.timepicker.min.js"></script>
 <script src="../js/noty.min.js"></script>
 <script src="../js/dashboard.js"></script>
 <script type="text/javascript">
   window.onload = function() {
-    $('[data-toggle="datepicker"]').datepicker({});
-    $('#timepicker').timepicker({
-      'timeFormat': 'H:i',
-      'step': 15
-    });
   }
   var isMarkdown = <?php echo $settings['markdown']; ?>;
   if (isMarkdown == 0) {
@@ -44,6 +36,7 @@
       spellChecker: false,
     });
   }
+
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
       sURLVariables = sPageURL.split('&'),
@@ -56,14 +49,30 @@
       }
     }
   };
+
+  function getDateFormat(date, type) {
+    var day = date.getDate();
+    if (day < 10) {day = "0"+day;}
+    var month = date.getMonth();
+    if (month < 10) {month = "0"+month;}
+    var year = date.getFullYear();
+    if(type == "date"){
+      var output = year+'-'+month+'-'+day;
+    } else {
+      var output = date.getHours() + ":" + date.getMinutes();
+    }
+    return output;
+  }
+
   if (getUrlParameter('id') == undefined) {
-    var getDateAndTime = Date.now();
-    document.getElementById('datepicker').value = moment(getDateAndTime).format('MM/DD/YYYY');
-    document.getElementById('timepicker').value = moment(getDateAndTime).format('HH:mm');
+    var currentDate = new Date();
+    $("#datepicker").val(getDateFormat(currentDate, "date"));
+    $("#timepicker").val(getDateFormat(currentDate, "time"));
   } else {
-    var getDateAndTime = "<?php echo $singleArticleResult['created']; ?>";
-    document.getElementById('datepicker').value = moment(getDateAndTime).format('MM/DD/YYYY');
-    document.getElementById('timepicker').value = moment(getDateAndTime).format('HH:mm');
+    var modifyDate = "<?php echo $singleArticleResult['modified']; ?>";
+    $("#datepicker").val(modifyDate.substr(0,10));
+    $("#timepicker").val(modifyDate.substr(11,5))
+
     var isPage = "<?php echo $singleArticleResult['isPage']; ?>";
     if (isPage == 1) {
       $('.isPagecheckbox').prop('checked', true);
@@ -71,10 +80,7 @@
       $('.isPagecheckbox').prop('checked', false);
     }
   }
-  // $('#submit').click(function(){
-  //   $('#hiddenTextarea').val(editor.container.firstChild.innerHTML);
-  //   $('#hiddenDescriptionTextarea').val(descEditor.container.firstChild.innerHTML);
-  // });
+
   $('.navbar-burger').click(function() {
     $('.navbar-burger').toggleClass('is-active');
   });

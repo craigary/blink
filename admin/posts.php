@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-$sql = "SELECT * FROM blink_contents WHERE isPage != 1 ORDER BY created DESC";
+$sql = "SELECT * FROM blink_contents WHERE isPage != 1 ORDER BY modified DESC";
 $result = mysqli_query($db, $sql);
 ?>
 <div class="container">
@@ -48,7 +48,7 @@ $result = mysqli_query($db, $sql);
         $cate = mysqli_fetch_assoc($stmt2);
         echo '<td>' . $cate['name'] . '</td>';
         echo '<td>' . $userResult['screenName'] . '</td>';
-        echo '<td>' . date('jS M Y', strtotime($contentResult['created'])) . '</td>';
+        echo '<td>' . substr($contentResult['modified'],0,-9) . '</td>';
         echo '<td>';
         echo '<a href="edit-post.php?id=' ?><?php echo $contentResult['cid']; ?><?php echo '">Edit</a> /';?>
         <a href="../includes/delete-inc.php?from=posts&cid=<?php echo $contentResult['cid']; ?>" onclick="return confirm('Are you sure?')">Delete</a>

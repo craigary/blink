@@ -6,7 +6,6 @@ if ($querytype == "Submit") {
   $postDescription = mysqli_real_escape_string($db, $_POST['description_textarea']);
   $postContent = mysqli_real_escape_string($db, $_POST['article_textarea']);
   $categoryId = mysqli_real_escape_string($db, $_POST['categoryId']);
-  $timeStamp = mysqli_real_escape_string($db, $_POST['date']);
   $uid = mysqli_real_escape_string($db, $_POST['uid']);
   if (isset($_POST['isPage'])) {
     $isPage = mysqli_real_escape_string($db, $_POST['isPage']);
@@ -24,9 +23,6 @@ if ($querytype == "Submit") {
       exit();
     } else {
 
-
-
-
       if (empty($postDescription)) {
         $postDescription = substr($postContent, 0, 450);
       }
@@ -35,10 +31,6 @@ if ($querytype == "Submit") {
         $result = mysqli_query($db, $sql);
         header("Location: ../admin/posts.php?action=posted");
         exit();
-
-
-
-
     }
   }
 } elseif ($querytype == "Update") {
@@ -55,7 +47,6 @@ if ($querytype == "Submit") {
   $uid = mysqli_real_escape_string($db, $_POST['uid']);
   $cid = mysqli_real_escape_string($db, $_POST['cid']);
   $date = $_POST['date'] . " " . $_POST['time'];
-  $date = date("Y-m-d H:i", strtotime($date));
   $date = mysqli_real_escape_string($db, $date);
   if (empty($postTitle)) {
     header("Location: ../admin/edit-post.php?id=" . $postid . "&action=emptytitle");

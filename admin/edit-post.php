@@ -42,7 +42,7 @@ if ($id == '') {
               </a>
             </p>
             <p class="control is-expanded">
-              <input class="input" id="datepicker" name="date" data-toggle="datepicker" readonly>
+            <input class="input" id="datepicker" name="date" type="date">
             </p>
           </div>
           <div class="field has-addons">
@@ -52,7 +52,7 @@ if ($id == '') {
               </a>
             </p>
             <p class="control is-expanded">
-              <input class="input" id="timepicker" name="time">
+            <input class="input" id="timepicker" type="time" name="time">
             </p>
           </div>
         </div><!-- close tag for sidebar divider -->

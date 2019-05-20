@@ -27,7 +27,7 @@ include 'header.php';
               </a>
             </p>
             <p class="control is-expanded">
-              <input class="input" id="datepicker" name="date" readonly>
+              <input class="input" id="datepicker" name="date" type="date" disabled>
             </p>
           </div>
           <div class="field has-addons">
@@ -37,7 +37,7 @@ include 'header.php';
               </a>
             </p>
             <p class="control is-expanded">
-              <input class="input" id="timepicker" name="time" readonly>
+              <input class="input" id="timepicker" type="time" name="time" disabled>
             </p>
           </div>
         </div><!-- close tag for sidebar divider -->
