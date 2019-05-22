@@ -102,7 +102,7 @@ include 'header.php';
 <script>
   window.onload = function() {
     <?php
-    if ($settings['markdown'] == 1) {
+    if ($settings['markdowntoolbar'] == 1) {
       echo "$('#md1').prop('checked', true);";
     } else {
       echo "$('#md0').prop('checked', true);";
@@ -142,7 +142,7 @@ switch ($errorMessage) {
   default:
     echo "";
 }
-if ($settings['markdown'] == 1) {
+if ($settings['markdowntoolbar'] == 1) {
   echo "$('#md1').prop('checked', true);";
 } else {
   echo "$('#md0').prop('checked', true);";

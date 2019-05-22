@@ -13,27 +13,25 @@
 <script type="text/javascript">
   window.onload = function() {
   }
-  var isMarkdown = <?php echo $settings['markdown']; ?>;
-  if (isMarkdown == 0) {
+  var isMarkdownToolbar = <?php echo $settings['markdowntoolbar']; ?>;
+  if (isMarkdownToolbar == 0) {
     var simplemde = new SimpleMDE({
-      element: $("#article_textarea")[0],
-      spellChecker: false,
+      element: document.getElementById("article_textarea"),
+      toolbar:false,
     });
     var simplemde1 = new SimpleMDE({
-      element: $("#description_textarea")[0],
-      toolbar: false,
-      spellChecker: false,
+      element: document.getElementById("description_textarea"),
+      toolbar:false,
+      status: false,
     });
-  } else if (isMarkdown == 1) {
+  } else if (isMarkdownToolbar == 1) {
     var simplemde = new SimpleMDE({
-      element: $("#article_textarea")[0],
-      toolbar: false,
-      spellChecker: false,
+      element: document.getElementById("article_textarea"),
     });
     var simplemde1 = new SimpleMDE({
-      element: $("#description_textarea")[0],
+      element: document.getElementById("description_textarea"),
       toolbar: false,
-      spellChecker: false,
+      status: false,
     });
   }
 
@@ -56,10 +54,14 @@
     var month = date.getMonth();
     if (month < 10) {month = "0"+month;}
     var year = date.getFullYear();
+    var hours = date.getHours();
+    if (hours < 10) {hours = "0"+hours;}
+    var minutes = date.getMinutes();
+    if (minutes < 10) {minutes = "0"+minutes;}
     if(type == "date"){
       var output = year+'-'+month+'-'+day;
-    } else {
-      var output = date.getHours() + ":" + date.getMinutes();
+    } else if (type == "time") {
+      var output = hours + ":" + minutes;
     }
     return output;
   }
