@@ -74,19 +74,19 @@ include 'header.php';
           <div class="field">
             <label class="label">Current Password</label>
             <div class="control">
-              <input class="input" name="currentPass" type="password" placeholder="Display Name" value="">
+              <input class="input" name="currentPass" type="password" placeholder="Current Password" value="">
             </div>
           </div>
           <div class="field">
             <label class="label">New Password</label>
             <div class="control">
-              <input class="input" name="newPass" type="password" placeholder="Email input" value="">
+              <input class="input" name="newPass" type="password" placeholder="New Password" value="">
             </div>
           </div>
           <div class="field">
             <label class="label">Conform Password</label>
             <div class="control">
-              <input class="input" name="doubleCheck" type="password" placeholder="Email input" value="">
+              <input class="input" name="doubleCheck" type="password" placeholder="Conform Password" value="">
             </div>
           </div>
           <div class="field is-grouped">
