@@ -9,7 +9,7 @@
           <div class="control">
             <input class="input" type="text" name="siteName" placeholder="Site Name" value="<?php echo $settings['siteName']; ?>">
           </div>
-          <p class="help">Your site name</p>
+          <p class="help">Your site name.</p>
         </div>
         <div class="field">
           <label class="label">Site Address</label>
