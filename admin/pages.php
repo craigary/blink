@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-$sql = "SELECT * FROM blink_contents WHERE isPage = 1 ORDER BY created DESC";
+$sql = "SELECT * FROM blink_contents WHERE isPage = 1 ORDER BY cid DESC";
 $result = mysqli_query($db, $sql);
 ?>
 <div class="container">
