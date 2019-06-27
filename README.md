@@ -1,4 +1,6 @@
 # Blink
-Personal blog project (not finished)
+Personal blog project
 
-this repo also being used for learning git ^_^
+Let's check the [demo](https://blog.craigary.net "Blink Demo")
+
+This repo also being used for learning git ^_^
